@@ -1,0 +1,166 @@
+.main {
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+     &__moneyChange {
+          background-color: aliceblue;
+          width: 30vw;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: flex-start;
+          margin-top: 10%;
+          border-radius: 20px;
+          &Info {
+               align-self: center;
+               font-size: 23px;
+               font-weight: 677;
+          }
+
+          &Course {
+               align-self: center;
+               font-size: 18px;
+               font-weight: 777;
+               margin-top: 5px;
+               &One {
+               }
+               &Two {
+               }
+          }
+
+          &Window {
+               display: flex;
+               flex-direction: column;
+               align-items: center;
+               justify-content: center;
+               height: 30vh;
+               gap: 15px;
+               padding: 10px 10px 10px 10px;
+               &Sum {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    justify-content: center;
+                    position: relative;
+                    &Label {
+                         position: absolute;
+                         left: 0px;
+                         top: -20px;
+                         font-size: 18px;
+                    }
+                    &Input {
+                         height: 50px;
+                         outline: none;
+                         border-radius: 10px;
+                         width: 23vw;
+                         border: 2px solid grey;
+                    }
+               }
+
+               &Result {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    justify-content: center;
+                    position: relative;
+                    &Label {
+                         position: absolute;
+                         left: 0px;
+                         top: -20px;
+                         font-size: 18px;
+                    }
+                    &Input {
+                         height: 50px;
+                         outline: none;
+                         border-radius: 10px;
+                         width: 23vw;
+                         border: 2px solid grey;
+                         user-select: none;
+                         background-color: rgba(221, 221, 221, 0.616);
+                    }
+               }
+               &Select {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    background-color: rgb(221, 221, 221);
+                    width: 5vw;
+                    height: 50px;
+                    border-radius: 8px;
+                    border: 2px solid rgb(207, 207, 207);
+                    margin-left: 0.15vw;
+                    transition: all 0.33s ease;
+                    position: relative;
+                    &Value {
+                    }
+               }
+               &Select:hover {
+                    background-color: rgba(75, 76, 77, 0.284);
+                    &Value {
+                    }
+               }
+          }
+     }
+     &__currencyList {
+          background-color: rgb(255, 255, 255);
+          width: 65vw;
+          height: 60vh;
+          margin-top: 10vh;
+          border-radius: 15px;
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+
+          &Global {
+               width: 60%;
+               border-bottom-right-radius: 30px;
+               border-top-right-radius: 30px;
+               border-bottom-left-radius: 15px;
+               border-top-left-radius: 15px;
+               background-color: rgb(194, 194, 194);
+
+               &Info {
+                    font-size: 30px;
+                    font-weight: 900;
+                    margin-left: 15px;
+               }
+               &Container {
+                    display: flex;
+                    flex-wrap: wrap;
+               }
+          }
+
+          &Like {
+               &Info {
+                    font-size: 30px;
+                    font-weight: 900;
+                    margin-right: 10px;
+               }
+               &Container {
+                    display: flex;
+                    flex-wrap: wrap;
+               }
+          }
+
+          &Item {
+               width: 10vw;
+               height: 45px;
+               border-radius: 5px;
+               border: 2px solid grey;
+               background-color: rgb(243, 243, 235);
+               margin-left: 15px;
+               margin-top: 30px;
+               display: flex;
+               justify-content: space-around;
+               align-items: center;
+               &Name {
+                    font-size: 30px;
+                    color: grey;
+               }
+               &Value {
+                    font-size: 25px;
+               }
+          }
+     }
+}
