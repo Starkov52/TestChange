@@ -389,8 +389,8 @@ html {
 }
 .main__currencyList {
   background-color: rgb(255, 255, 255);
-  width: 65vw;
-  height: 60vh;
+  width: 75vw;
+  height: 65vh;
   margin-top: 10vh;
   border-radius: 15px;
   display: -webkit-box;
@@ -411,25 +411,44 @@ html {
   border-bottom-left-radius: 15px;
   border-top-left-radius: 15px;
   background-color: rgb(194, 194, 194);
+  overflow-y: auto;
+  position: relative;
 }
 .main__currencyListGlobalInfo {
   font-size: 30px;
   font-weight: 900;
   margin-left: 15px;
+  position: fixed;
+  z-index: 3;
+  background-color: rgb(114, 61, 236);
+  border-radius: 5px;
+}
+.main__currencyListGlobalInfoDop {
+  font-size: 25px;
 }
 .main__currencyListGlobalContainer {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  margin-top: 30px;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+}
+.main__currencyListLike {
+  overflow-y: auto;
+  width: 40%;
 }
 .main__currencyListLikeInfo {
   font-size: 30px;
   font-weight: 900;
-  margin-right: 10px;
+  margin-left: 15px;
+  position: fixed;
+  z-index: 3;
+  background-color: rgb(34, 187, 233);
+  border-radius: 5px;
 }
 .main__currencyListLikeContainer {
+  margin-top: 30px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -437,7 +456,7 @@ html {
       flex-wrap: wrap;
 }
 .main__currencyListItem {
-  width: 10vw;
+  width: 13.2vw;
   height: 45px;
   border-radius: 5px;
   border: 2px solid grey;
@@ -447,18 +466,39 @@ html {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  position: relative;
+  -webkit-transition: background-color 0.33s ease-in-out;
+  transition: background-color 0.33s ease-in-out;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  cursor: pointer;
 }
 .main__currencyListItemName {
   font-size: 30px;
   color: grey;
+  margin-left: 5px;
 }
 .main__currencyListItemValue {
   font-size: 25px;
+  position: absolute;
+  top: 10px;
+  left: 40%;
+}
+.main__currencyListItemLike {
+  position: absolute;
+  top: 5px;
+  left: 83%;
+}
+.main__currencyListItem:hover {
+  background-color: rgb(255, 255, 157);
 }
 
 .selectList {

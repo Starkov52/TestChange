@@ -3,8 +3,12 @@ import { FaExchangeAlt } from "react-icons/fa";
 import SelectDefaultCurrency from "./selectDefaultCurrency";
 import { useSelector } from "react-redux";
 import type { RootState } from "../state/store";
-interface MoneyChangeType {}
-const MoneyChange: React.FC<MoneyChangeType> = () => {
+interface MoneyChangeType {
+     currencies: string[];
+     handleGetCurrencys: (from: string, to: string) => void;
+     difference: string;
+}
+const MoneyChange: React.FC<MoneyChangeType> = ({ currencies, handleGetCurrencys, difference }) => {
      const defaultCurr: string = useSelector((state: RootState) => state.userData.userCurrency);
      const [inputCurrency, setInputCurrency] = React.useState<string>("");
      const [outputCurrency, setOutputCurrency] = React.useState<string>("");
@@ -12,24 +16,7 @@ const MoneyChange: React.FC<MoneyChangeType> = () => {
      const [isSelectOpenResult, setIsSelectOpenResult] = React.useState<boolean>(false);
      const [targetOneCurrency, setTargetOneCurrency] = React.useState<string>(defaultCurr);
      const [targetTwoCurrency, setTargetTwoCurrency] = React.useState<string>("");
-     const [difference, setDifference] = React.useState<string>("");
-     const handleGetCurrencys = async (from: string, to: string) => {
-          try {
-               const url: string = `https://v6.exchangerate-api.com/v6/13203235093b483f2f660a32/latest/${from}`;
-               const response = await fetch(url, {
-                    headers: {
-                         "Content-Type": "application/json"
-                    },
-                    method: "GET"
-               });
-               const parseResponse = await response.json();
-               const difference: string = parseResponse.conversion_rates[to.toUpperCase()];
-               console.log(difference);
-               setDifference(difference);
-          } catch (error: any) {
-               console.error(error);
-          }
-     };
+
      const handleCalculate = (
           event: React.ChangeEvent<HTMLInputElement> | null,
           difference: string,
@@ -48,6 +35,8 @@ const MoneyChange: React.FC<MoneyChangeType> = () => {
           if (targetOneCurrency !== "" && targetTwoCurrency !== "") {
                handleGetCurrencys(targetOneCurrency, targetTwoCurrency);
                handleCalculate(null, difference, true);
+               setInputCurrency("");
+               setOutputCurrency("");
           }
      }, [targetOneCurrency, targetTwoCurrency]);
      return (
@@ -77,6 +66,7 @@ const MoneyChange: React.FC<MoneyChangeType> = () => {
                               type="MAIN"
                               setTargetCurrency={setTargetOneCurrency}
                               targetCurrency={targetOneCurrency}
+                              currencies={currencies}
                          ></SelectDefaultCurrency>
                     </div>
                     <FaExchangeAlt size={40} color="blue"></FaExchangeAlt>
@@ -86,9 +76,10 @@ const MoneyChange: React.FC<MoneyChangeType> = () => {
                               type="text"
                               className="main__moneyChangeWindowResultInput"
                               onChange={() => setOutputCurrency("")}
-                              value={outputCurrency.slice(0, 5)}
+                              value={Number(outputCurrency).toFixed(2)}
                          ></input>
                          <SelectDefaultCurrency
+                              currencies={currencies}
                               onClick={() => setIsSelectOpenResult((prevState) => !prevState)}
                               isSelectOpen={isSelectOpenResult}
                               type="MAIN"

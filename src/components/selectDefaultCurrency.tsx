@@ -7,13 +7,15 @@ interface CurrencyInterface {
      isSelectOpen: boolean;
      setTargetCurrency: React.Dispatch<React.SetStateAction<string>>;
      targetCurrency: string;
+     currencies: string[];
 }
 const SelectDefaultCurrency: React.FC<CurrencyInterface> = ({
      type,
      isSelectOpen,
      onClick,
      targetCurrency,
-     setTargetCurrency
+     setTargetCurrency,
+     currencies
 }) => {
      return (
           <div
@@ -28,6 +30,7 @@ const SelectDefaultCurrency: React.FC<CurrencyInterface> = ({
                <MdOutlineFilterList size={40} color="black"></MdOutlineFilterList>
                {isSelectOpen ? (
                     <SelectDefaultCurrencyList
+                         currencies={currencies}
                          setTargetCurrency={setTargetCurrency}
                     ></SelectDefaultCurrencyList>
                ) : null}

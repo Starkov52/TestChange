@@ -104,8 +104,8 @@
      }
      &__currencyList {
           background-color: rgb(255, 255, 255);
-          width: 65vw;
-          height: 60vh;
+          width: 75vw;
+          height: 65vh;
           margin-top: 10vh;
           border-radius: 15px;
           display: flex;
@@ -119,32 +119,49 @@
                border-bottom-left-radius: 15px;
                border-top-left-radius: 15px;
                background-color: rgb(194, 194, 194);
+               overflow-y: auto;
+               position: relative;
 
                &Info {
                     font-size: 30px;
                     font-weight: 900;
                     margin-left: 15px;
+                    position: fixed;
+                    z-index: 3;
+                    background-color: rgb(114, 61, 236);
+                    border-radius: 5px;
+                    &Dop {
+                         font-size: 25px;
+                    }
                }
                &Container {
                     display: flex;
+                    margin-top: 30px;
                     flex-wrap: wrap;
                }
           }
 
           &Like {
+               overflow-y: auto;
+               width: 40%;
                &Info {
                     font-size: 30px;
                     font-weight: 900;
-                    margin-right: 10px;
+                    margin-left: 15px;
+                    position: fixed;
+                    z-index: 3;
+                    background-color: rgb(34, 187, 233);
+                    border-radius: 5px;
                }
                &Container {
+                    margin-top: 30px;
                     display: flex;
                     flex-wrap: wrap;
                }
           }
 
           &Item {
-               width: 10vw;
+               width: 13.2vw;
                height: 45px;
                border-radius: 5px;
                border: 2px solid grey;
@@ -152,15 +169,31 @@
                margin-left: 15px;
                margin-top: 30px;
                display: flex;
-               justify-content: space-around;
+               justify-content: flex-start;
                align-items: center;
+               position: relative;
+               transition: background-color 0.33s ease-in-out;
+               user-select: none;
+               cursor: pointer;
                &Name {
                     font-size: 30px;
                     color: grey;
+                    margin-left: 5px;
                }
                &Value {
                     font-size: 25px;
+                    position: absolute;
+                    top: 10px;
+                    left: 40%;
                }
+               &Like {
+                    position: absolute;
+                    top: 5px;
+                    left: 83%;
+               }
+          }
+          &Item:hover {
+               background-color: rgb(255, 255, 157);
           }
      }
 }

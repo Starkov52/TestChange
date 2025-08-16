@@ -5,8 +5,10 @@ import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { type RootState, type RootDispatch } from "../state/store";
 import { changeDefaultCurrency } from "../state/mainSlice";
-interface HeaderInterface {}
-const Header: React.FC<HeaderInterface> = () => {
+interface HeaderInterface {
+     currencies: string[];
+}
+const Header: React.FC<HeaderInterface> = ({ currencies }) => {
      const [time, setTime] = React.useState<string>(new Date().toString().slice(16, 25));
      const [isSelectOpen, setIsSelectOpen] = React.useState<boolean>(false);
      const dispatch: RootDispatch = useDispatch();
@@ -42,6 +44,7 @@ const Header: React.FC<HeaderInterface> = () => {
                     onClick={() => setIsSelectOpen((prevState) => !prevState)}
                     type="HEADER"
                     isSelectOpen={isSelectOpen}
+                    currencies={currencies}
                ></SelectDefaultCurrency>
                <div className="header__time">
                     <MdAccessTime color="grey" size={35}></MdAccessTime>
