@@ -13,14 +13,14 @@
      align-items: center;
      justify-content: flex-start;
      gap: 5px;
-
-     z-index: 2;
+     overflow-x: visible;
+     z-index: 5;
      user-select: none;
      &__item {
           padding: 5px 5px 5px 5px;
           width: 92%;
           border-bottom: 2px solid black;
-          border-radius: 10px;
+          border-radius: 6px;
           background-color: rgb(214, 214, 214);
           transition: all 0.33s ease;
           &Name {
@@ -29,6 +29,7 @@
      }
      &__item:hover {
           background-color: rgb(134, 161, 235);
+          transform: translateX(10px);
      }
 }
 .selectList::-webkit-scrollbar {

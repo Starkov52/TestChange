@@ -52,49 +52,57 @@ const CurrencyList = ({ currenciesAPI, userLikeCurrency }: CurrencyListType) => 
      }, [userLikeCurrency, targetCurrency, currenciesAPI]);
 
      return (
-          <div className="main__currencyList">
-               <div className="main__currencyListGlobal">
-                    <p className="main__currencyListGlobalInfo">
+          <div className="cont">
+               <div className="main__header">
+                    <p className="main__headerGlobalInfo">
                          Все валюты:
-                         <span className="main__currencyListGlobalInfoDop">
+                         <span className="main__headerDop">
                               {"1" + targetCurrency.toUpperCase()} =
                          </span>
                     </p>
-                    <div ref={container} className="main__currencyListGlobalContainer">
-                         {currenciesAPI.length > 1
-                              ? readyData.map(
-                                     (
-                                          item: { name: string; value: string; isLike: boolean },
-                                          index: number
-                                     ) => {
-                                          return (
-                                               <CurrencyItem
-                                                    name={item.name}
-                                                    value={item.value}
-                                                    isLike={item.isLike}
-                                                    key={index}
-                                               ></CurrencyItem>
-                                          );
-                                     }
-                                )
-                              : null}
-                    </div>
+                    <p className="main__headerLikeInfo">Понравившиеся валюты</p>
                </div>
-               <div className="main__currencyListLike">
-                    <p className="main__currencyListLikeInfo">Понравившиеся валюты</p>
-                    <div className="main__currencyListLikeContainer">
-                         {userLikeCurrency?.map(
-                              (item: { name: string; value: string }, index: number) => {
-                                   return (
-                                        <CurrencyItem
-                                             name={item.name}
-                                             value={"0"}
-                                             isLike={true}
-                                             key={index}
-                                        ></CurrencyItem>
-                                   );
-                              }
-                         )}
+               <div className="main__currencyList">
+                    <div className="main__currencyListGlobal">
+                         <div ref={container} className="main__currencyListGlobalContainer">
+                              {currenciesAPI.length > 1
+                                   ? readyData.map(
+                                          (
+                                               item: {
+                                                    name: string;
+                                                    value: string;
+                                                    isLike: boolean;
+                                               },
+                                               index: number
+                                          ) => {
+                                               return (
+                                                    <CurrencyItem
+                                                         name={item.name}
+                                                         value={item.value}
+                                                         isLike={item.isLike}
+                                                         key={index}
+                                                    ></CurrencyItem>
+                                               );
+                                          }
+                                     )
+                                   : null}
+                         </div>
+                    </div>
+                    <div className="main__currencyListLike">
+                         <div className="main__currencyListLikeContainer">
+                              {userLikeCurrency?.map(
+                                   (item: { name: string; value: string }, index: number) => {
+                                        return (
+                                             <CurrencyItem
+                                                  name={item.name}
+                                                  value={""}
+                                                  isLike={true}
+                                                  key={index}
+                                             ></CurrencyItem>
+                                        );
+                                   }
+                              )}
+                         </div>
                     </div>
                </div>
           </div>

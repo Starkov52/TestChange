@@ -160,13 +160,24 @@ html {
   -ms-flex-negative: 0;
       flex-shrink: 0;
 }
+.header__links {
+  margin-right: auto;
+  margin-left: 20px;
+  min-width: 315px;
+}
+.header__payload {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 7px;
+}
 .header__titleStart {
   margin-left: 10px;
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
-  font-size: 40px;
+  font-size: 3.1vw;
 }
 .header__titleEnd:hover {
   color: rgb(255, 244, 149);
@@ -206,6 +217,7 @@ html {
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
   text-decoration: none;
+  word-break: keep-all;
 }
 .header__currencyList:hover {
   background-color: rgba(247, 222, 4, 0.5);
@@ -221,7 +233,7 @@ html {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin-left: 35%;
+  margin-left: 3vw;
   background-color: rgb(221, 221, 221);
   width: 9vw;
   border-radius: 8px;
@@ -251,6 +263,43 @@ html {
           align-items: center;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
+.main__header {
+  width: 75vw;
+  background-color: aliceblue;
+  margin-top: 8vh;
+  border-radius: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  height: 50px;
+}
+.main__headerGlobalInfo {
+  margin-left: 10px;
+  font-size: 30px;
+  font-weight: 1000;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+.main__headerLikeInfo {
+  font-size: 30px;
+  font-weight: 1000;
+  margin-right: 10px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+.main__headerDop {
+  font-size: 30px;
+  font-weight: 1000;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
 .main__moneyChange {
   background-color: aliceblue;
   width: 30vw;
@@ -268,6 +317,7 @@ html {
       -ms-flex-align: start;
           align-items: flex-start;
   margin-top: 10%;
+  padding: 15px 15px 15px 15px;
   border-radius: 20px;
 }
 .main__moneyChangeInfo {
@@ -391,7 +441,7 @@ html {
   background-color: rgb(255, 255, 255);
   width: 75vw;
   height: 65vh;
-  margin-top: 10vh;
+  margin-top: 1vh;
   border-radius: 15px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -403,9 +453,10 @@ html {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  overflow-x: hidden;
 }
 .main__currencyListGlobal {
-  width: 60%;
+  width: 65%;
   border-bottom-right-radius: 30px;
   border-top-right-radius: 30px;
   border-bottom-left-radius: 15px;
@@ -414,41 +465,23 @@ html {
   overflow-y: auto;
   position: relative;
 }
-.main__currencyListGlobalInfo {
-  font-size: 30px;
-  font-weight: 900;
-  margin-left: 15px;
-  position: fixed;
-  z-index: 3;
-  background-color: rgb(114, 61, 236);
-  border-radius: 5px;
-}
-.main__currencyListGlobalInfoDop {
-  font-size: 25px;
-}
 .main__currencyListGlobalContainer {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  margin-top: 30px;
+  margin-top: 5px;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 .main__currencyListLike {
   overflow-y: auto;
   width: 40%;
 }
-.main__currencyListLikeInfo {
-  font-size: 30px;
-  font-weight: 900;
-  margin-left: 15px;
-  position: fixed;
-  z-index: 3;
-  background-color: rgb(34, 187, 233);
-  border-radius: 5px;
-}
 .main__currencyListLikeContainer {
-  margin-top: 30px;
+  margin-top: 5px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -456,12 +489,11 @@ html {
       flex-wrap: wrap;
 }
 .main__currencyListItem {
-  width: 13.2vw;
+  width: 18.2vw;
   height: 45px;
   border-radius: 5px;
   border: 2px solid grey;
   background-color: rgb(243, 243, 235);
-  margin-left: 15px;
   margin-top: 30px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -482,20 +514,22 @@ html {
   cursor: pointer;
 }
 .main__currencyListItemName {
-  font-size: 30px;
+  font-size: 2vw;
   color: grey;
-  margin-left: 5px;
-}
-.main__currencyListItemValue {
-  font-size: 25px;
+  margin-left: 10px;
   position: absolute;
   top: 10px;
-  left: 40%;
+  left: 35%;
+}
+.main__currencyListItemValue {
+  font-size: 1.7vw;
+  margin-left: 5px;
 }
 .main__currencyListItemLike {
   position: absolute;
   top: 5px;
-  left: 83%;
+  left: 77%;
+  width: 30%;
 }
 .main__currencyListItem:hover {
   background-color: rgb(255, 255, 157);
@@ -525,7 +559,8 @@ html {
       -ms-flex-pack: start;
           justify-content: flex-start;
   gap: 5px;
-  z-index: 2;
+  overflow-x: visible;
+  z-index: 5;
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
@@ -535,7 +570,7 @@ html {
   padding: 5px 5px 5px 5px;
   width: 92%;
   border-bottom: 2px solid black;
-  border-radius: 10px;
+  border-radius: 6px;
   background-color: rgb(214, 214, 214);
   -webkit-transition: all 0.33s ease;
   transition: all 0.33s ease;
@@ -545,6 +580,9 @@ html {
 }
 .selectList__item:hover {
   background-color: rgb(134, 161, 235);
+  -webkit-transform: translateX(10px);
+      -ms-transform: translateX(10px);
+          transform: translateX(10px);
 }
 
 .selectList::-webkit-scrollbar {

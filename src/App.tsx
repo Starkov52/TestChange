@@ -1,11 +1,12 @@
 import "./index.css";
+import React from "react";
 import Header from "./components/header";
 import Main from "./components/main";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { Provider } from "react-redux";
 import store from "../src/state/store";
 function App() {
-     const currencies: string[] = [
+     const [currencies, setCurencies] = React.useState<string[]>([
           "usd",
           "eur",
           "gbp",
@@ -166,20 +167,66 @@ function App() {
           "zar",
           "zmw",
           "zwl"
-     ];
+     ]);
+     const [currencyListIsOpen, setCurrencyListIsOpen] = React.useState<{
+          one: boolean;
+          two: boolean;
+          header: boolean;
+     }>({ one: false, two: false, header: false });
+     React.useEffect(() => {
+          const handleCloseSelect = (event: MouseEvent) => {
+               const targetElement = event.target as HTMLElement;
+               console.log(targetElement);
+               if (!targetElement) {
+                    return;
+               }
+               if (
+                    !targetElement.closest(".header__selectDefaultCurrency") &&
+                    !targetElement.closest(".main__moneyChangeWindowSelect")
+               ) {
+                    setCurrencyListIsOpen({
+                         one: false,
+                         two: false,
+                         header: false
+                    });
+               }
+          };
+
+          window.addEventListener("click", handleCloseSelect);
+          return () => window.removeEventListener("click", handleCloseSelect);
+     }, []);
      return (
           <>
                <Provider store={store}>
                     <Router>
-                         <Header currencies={currencies}></Header>
+                         <Header
+                              currencyListIsOpen={currencyListIsOpen}
+                              setCurrencyListIsOpen={setCurrencyListIsOpen}
+                              currencies={currencies}
+                         ></Header>
                          <Routes>
                               <Route
                                    path="/"
-                                   element={<Main currencies={currencies} type="CHANGE"></Main>}
+                                   element={
+                                        <Main
+                                             currencyListIsOpen={currencyListIsOpen}
+                                             setCurrencyListIsOpen={setCurrencyListIsOpen}
+                                             currencies={currencies}
+                                             type="CHANGE"
+                                        ></Main>
+                                   }
                               ></Route>
                               <Route
                                    path="/currencyList"
-                                   element={<Main currencies={currencies} type="LIST"></Main>}
+                                   element={
+                                        <Main
+                                             currencyListIsOpen={currencyListIsOpen}
+                                             setCurrencyListIsOpen={setCurrencyListIsOpen}
+                                             currencies={currencies}
+                                             setCurrencies={setCurencies}
+                                             type="LIST"
+                                        ></Main>
+                                   }
                               ></Route>
                          </Routes>
                     </Router>

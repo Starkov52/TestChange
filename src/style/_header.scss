@@ -12,10 +12,21 @@
      border-bottom-left-radius: 20px;
      border-bottom-right-radius: 20px;
      flex-shrink: 0;
+
+     &__links {
+          margin-right: auto;
+          margin-left: 20px;
+          min-width: 315px;
+     }
+     &__payload {
+          display: flex;
+          gap: 7px;
+     }
+
      &__titleStart {
           margin-left: 10px;
           user-select: none;
-          font-size: 40px;
+          font-size: 3.1vw;
      }
      &__titleEnd:hover {
           color: rgb(255, 244, 149);
@@ -40,6 +51,7 @@
           font-weight: 900;
           font-style: normal;
           font-size: 20px;
+
           margin-left: 10px;
           background-color: rgb(247, 222, 4);
           border-radius: 7px;
@@ -47,6 +59,7 @@
           user-select: none;
           transition: all 0.3s ease;
           text-decoration: none;
+          word-break: keep-all;
      }
      &__currencyList:hover {
           background-color: rgb(247, 222, 4, 0.5);
@@ -56,7 +69,7 @@
           display: flex;
           justify-content: space-between;
           align-items: center;
-          margin-left: 35%;
+          margin-left: 3vw;
           background-color: rgb(221, 221, 221);
           width: 9vw;
           border-radius: 8px;

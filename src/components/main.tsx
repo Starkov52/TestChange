@@ -6,8 +6,19 @@ import type { RootState } from "../state/store";
 interface MainType {
      type: "CHANGE" | "LIST";
      currencies: string[];
+     currencyListIsOpen: { one: boolean; two: boolean; header: boolean };
+     setCurrencyListIsOpen: React.Dispatch<
+          React.SetStateAction<{ one: boolean; two: boolean; header: boolean }>
+     >;
+     setCurrencies?: React.Dispatch<React.SetStateAction<string[]>>;
 }
-const Main: React.FC<MainType> = ({ type, currencies }) => {
+const Main: React.FC<MainType> = ({
+     type,
+     currencies,
+     currencyListIsOpen,
+     setCurrencyListIsOpen,
+     setCurrencies
+}) => {
      const [difference, setDifference] = React.useState<string>("");
      const targetCurrency: string = useSelector((state: RootState) => state.userData.userCurrency);
      const userLikeCurrency: { name: string; value: string; isLike: boolean }[] | null =
@@ -54,6 +65,28 @@ const Main: React.FC<MainType> = ({ type, currencies }) => {
                setCurrenciesAPI(currs);
           });
      }, [targetCurrency]);
+     React.useEffect(() => {
+          if (userLikeCurrency && setCurrencies) {
+               const notLikeCurrencies: string[] = currencies.filter((itemALL: string) => {
+                    const findLikeCurr = userLikeCurrency.find(
+                         (itemLIKE) => itemLIKE.name === itemALL
+                    );
+                    if (findLikeCurr) {
+                         return false;
+                    } else {
+                         return true;
+                    }
+               });
+               const likeCurrencies: string[] = userLikeCurrency.map(
+                    (item: { name: string; value: string; isLike: boolean }) => {
+                         return item.name;
+                    }
+               );
+               const result: string[] = [...likeCurrencies, ...notLikeCurrencies];
+               console.log("change LIKE currencies", result);
+               setCurrencies(result);
+          }
+     }, [userLikeCurrency]);
      return (
           <main className="main">
                {type === "LIST" ? (
@@ -65,6 +98,8 @@ const Main: React.FC<MainType> = ({ type, currencies }) => {
                     ></CurrencyList>
                ) : (
                     <MoneyChange
+                         currencyListIsOpen={currencyListIsOpen}
+                         setCurrencyListIsOpen={setCurrencyListIsOpen}
                          handleGetCurrencys={handleGetCurrencys}
                          currencies={currencies}
                          difference={difference}

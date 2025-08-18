@@ -7,13 +7,21 @@ interface MoneyChangeType {
      currencies: string[];
      handleGetCurrencys: (from: string, to: string) => void;
      difference: string;
+     currencyListIsOpen: { one: boolean; two: boolean; header: boolean };
+     setCurrencyListIsOpen: React.Dispatch<
+          React.SetStateAction<{ one: boolean; two: boolean; header: boolean }>
+     >;
 }
-const MoneyChange: React.FC<MoneyChangeType> = ({ currencies, handleGetCurrencys, difference }) => {
+const MoneyChange: React.FC<MoneyChangeType> = ({
+     currencies,
+     handleGetCurrencys,
+     difference,
+     currencyListIsOpen,
+     setCurrencyListIsOpen
+}) => {
      const defaultCurr: string = useSelector((state: RootState) => state.userData.userCurrency);
      const [inputCurrency, setInputCurrency] = React.useState<string>("");
      const [outputCurrency, setOutputCurrency] = React.useState<string>("");
-     const [isSelectOpenSum, setIsSelectOpenSum] = React.useState<boolean>(false);
-     const [isSelectOpenResult, setIsSelectOpenResult] = React.useState<boolean>(false);
      const [targetOneCurrency, setTargetOneCurrency] = React.useState<string>(defaultCurr);
      const [targetTwoCurrency, setTargetTwoCurrency] = React.useState<string>("");
 
@@ -22,11 +30,14 @@ const MoneyChange: React.FC<MoneyChangeType> = ({ currencies, handleGetCurrencys
           difference: string,
           auto: boolean
      ) => {
-          const value: string | undefined = event?.currentTarget.value;
+          if (targetTwoCurrency) {
+               const value: string | undefined = event?.currentTarget.value;
 
-          const result: number = Number(!auto ? value : inputCurrency) * Number(difference);
-          value ? setInputCurrency(value) : null;
-          setOutputCurrency(result.toString());
+               const result: number = Number(!auto ? value : inputCurrency) * Number(difference);
+               const newInput: string = auto ? inputCurrency : (value as string);
+               setInputCurrency(newInput);
+               setOutputCurrency(result.toString());
+          }
      };
      React.useEffect(() => {
           setTargetOneCurrency(defaultCurr);
@@ -34,11 +45,13 @@ const MoneyChange: React.FC<MoneyChangeType> = ({ currencies, handleGetCurrencys
      React.useEffect(() => {
           if (targetOneCurrency !== "" && targetTwoCurrency !== "") {
                handleGetCurrencys(targetOneCurrency, targetTwoCurrency);
-               handleCalculate(null, difference, true);
-               setInputCurrency("");
-               setOutputCurrency("");
           }
      }, [targetOneCurrency, targetTwoCurrency]);
+     React.useEffect(() => {
+          if (targetOneCurrency !== "" && targetTwoCurrency !== "" && inputCurrency !== "") {
+               handleCalculate(null, difference, true);
+          }
+     }, [difference]);
      return (
           <section className="main__moneyChange">
                <p className="main__moneyChangeInfo">Среднерыночный обменный курс</p>
@@ -59,11 +72,12 @@ const MoneyChange: React.FC<MoneyChangeType> = ({ currencies, handleGetCurrencys
                               type="text"
                               className="main__moneyChangeWindowSumInput"
                               value={inputCurrency}
+                              placeholder="Введите необходимую сумму"
                          ></input>
                          <SelectDefaultCurrency
-                              onClick={() => setIsSelectOpenSum((prevState) => !prevState)}
-                              isSelectOpen={isSelectOpenSum}
-                              type="MAIN"
+                              setCurrencyListIsOpen={setCurrencyListIsOpen}
+                              currencyListIsOpen={currencyListIsOpen}
+                              type="ONE"
                               setTargetCurrency={setTargetOneCurrency}
                               targetCurrency={targetOneCurrency}
                               currencies={currencies}
@@ -79,10 +93,10 @@ const MoneyChange: React.FC<MoneyChangeType> = ({ currencies, handleGetCurrencys
                               value={Number(outputCurrency).toFixed(2)}
                          ></input>
                          <SelectDefaultCurrency
+                              currencyListIsOpen={currencyListIsOpen}
+                              setCurrencyListIsOpen={setCurrencyListIsOpen}
                               currencies={currencies}
-                              onClick={() => setIsSelectOpenResult((prevState) => !prevState)}
-                              isSelectOpen={isSelectOpenResult}
-                              type="MAIN"
+                              type="TWO"
                               setTargetCurrency={setTargetTwoCurrency}
                               targetCurrency={targetTwoCurrency}
                          ></SelectDefaultCurrency>

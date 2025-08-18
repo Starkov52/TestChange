@@ -3,6 +3,7 @@ interface SelectDefaultCurrencyType {
      setTargetCurrency: React.Dispatch<React.SetStateAction<string>>;
      currencies: string[];
 }
+import { ListItem, ListItemText } from "@mui/material";
 const SelectDefaultCurrency: React.FC<SelectDefaultCurrencyType> = ({
      setTargetCurrency,
      currencies
@@ -11,13 +12,15 @@ const SelectDefaultCurrency: React.FC<SelectDefaultCurrencyType> = ({
           <div className="selectList">
                {currencies.map((curr: string, index: number) => {
                     return (
-                         <div
+                         <ListItem
                               onClick={() => setTargetCurrency(curr)}
                               key={index}
                               className="selectList__item"
                          >
-                              <span className="selectList__itemName">{curr.toUpperCase()}</span>
-                         </div>
+                              <ListItemText className="selectList__itemName">
+                                   {curr.toUpperCase()}
+                              </ListItemText>
+                         </ListItem>
                     );
                })}
           </div>
