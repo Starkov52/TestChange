@@ -598,6 +598,7 @@ html {
             flex-direction: column;
     height: auto;
     padding: 10px;
+    width: 97.2%;
   }
   .header__links {
     margin: 0;
@@ -624,10 +625,11 @@ html {
     margin-left: 10%;
   }
   .header .selectList {
-    width: 120px;
+    width: 100px;
+    overflow: hidden;
   }
   .header .selectListItem {
-    width: 100px;
+    width: 90px;
   }
   .main__header {
     width: 92vw;
@@ -677,8 +679,11 @@ html {
   }
   .main__moneyChangeWindowSelect {
     width: 28%;
-    min-width: 90px;
+    max-width: 90px;
     height: 46px;
+  }
+  .main__moneyChangeWindowSelectItem {
+    width: 85px;
   }
   .main__currencyList {
     width: 92vw;
@@ -715,17 +720,24 @@ html {
     width: 45%;
   }
   .main .selectList {
-    width: 150px;
+    max-width: 95px;
     top: 60px;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
   }
   .main .selectList__item {
     padding: 6px;
+    width: 90px;
   }
   .main .selectList__itemName {
     font-size: 16px;
   }
 }
 @media (max-width: 500px) {
+  .header {
+    width: 95.7%;
+  }
   .header__links {
     font-size: 14px;
   }
