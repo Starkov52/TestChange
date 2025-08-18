@@ -485,6 +485,7 @@ html {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  margin-left: 10px;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
 }
@@ -515,11 +516,11 @@ html {
 }
 .main__currencyListItemName {
   font-size: 2vw;
-  color: grey;
+  color: rgb(0, 0, 0);
   margin-left: 10px;
   position: absolute;
-  top: 10px;
-  left: 35%;
+  top: 15px;
+  left: 11vw;
 }
 .main__currencyListItemValue {
   font-size: 1.7vw;
@@ -527,7 +528,7 @@ html {
 }
 .main__currencyListItemLike {
   position: absolute;
-  top: 5px;
+  top: 15px;
   left: 77%;
   width: 30%;
 }
@@ -587,4 +588,265 @@ html {
 
 .selectList::-webkit-scrollbar {
   width: 10px;
+}
+
+@media (max-width: 850px) {
+  .header {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    height: auto;
+    padding: 10px;
+  }
+  .header__links {
+    margin: 0;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .header__titleStart {
+    font-size: 20px;
+    margin-left: 5px;
+  }
+  .header__time {
+    margin-right: 5px;
+  }
+  .header__timeValue {
+    width: 90px;
+    font-size: 15px;
+  }
+  .header__selectDefaultCurrency {
+    width: 110px;
+  }
+  .header__selectDefaultCurrencyValue {
+    margin-left: 10%;
+  }
+  .header .selectList {
+    width: 120px;
+  }
+  .header .selectListItem {
+    width: 100px;
+  }
+  .main__header {
+    width: 92vw;
+    margin-top: 5vh;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  .main__headerDop {
+    font-size: 16px;
+  }
+  .main__moneyChange {
+    width: 80vw;
+    margin-left: 0px;
+    margin-top: 30vw;
+  }
+  .main__moneyChangeInfo {
+    font-size: 20px;
+  }
+  .main__moneyChangeCourse {
+    font-size: 16px;
+  }
+  .main__moneyChangeWindowResultLabel {
+    font-size: 16px;
+    position: relative;
+    top: -30px;
+    left: -10px;
+    font-weight: 900;
+    margin-bottom: 10px;
+  }
+  .main__moneyChangeWindowResultInput {
+    width: 56vw;
+    height: 46px;
+    margin-left: -40px;
+  }
+  .main__moneyChangeWindowSumLabel {
+    font-size: 16px;
+    position: relative;
+    top: -30px;
+    left: -10px;
+    font-weight: 900;
+    margin-bottom: 10px;
+  }
+  .main__moneyChangeWindowSumInput {
+    width: 56vw;
+    height: 46px;
+    margin-left: -60px;
+  }
+  .main__moneyChangeWindowSelect {
+    width: 28%;
+    min-width: 90px;
+    height: 46px;
+  }
+  .main__currencyList {
+    width: 92vw;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+  .main__currencyListItem {
+    width: 38%;
+    height: 48px;
+    margin-top: 10px;
+  }
+  .main__currencyListItemName {
+    font-size: 2vw;
+    color: rgb(0, 0, 0);
+    margin-left: 10px;
+    position: absolute;
+    top: 15px;
+    left: 17vw;
+  }
+  .main__currencyListItemValue {
+    font-size: 14px;
+  }
+  .main__currencyListItemLike {
+    width: 28%;
+    top: 6px;
+    right: 8%;
+  }
+  .main__currencyListGlobal {
+    width: 55%;
+  }
+  .main__currencyListLike {
+    width: 45%;
+  }
+  .main .selectList {
+    width: 150px;
+    top: 60px;
+  }
+  .main .selectList__item {
+    padding: 6px;
+  }
+  .main .selectList__itemName {
+    font-size: 16px;
+  }
+}
+@media (max-width: 500px) {
+  .header__links {
+    font-size: 14px;
+  }
+  .header__titleStart {
+    font-size: 18px;
+  }
+  .header__timeValue {
+    width: 70px;
+    font-size: 14px;
+  }
+  .header__currencyList {
+    font-size: 14px;
+    padding: 4px 6px;
+  }
+  .header__selectDefaultCurrency {
+    width: 84px;
+    max-height: 50px;
+  }
+  .main__headerGlobalInfo, .main__headerLikeInfo, .main__headerDop {
+    font-size: 18px;
+  }
+  .main__moneyChangeWindowSumInput, .main__moneyChangeWindowResultInput {
+    height: 44px;
+    font-size: 14px;
+  }
+  .main__moneyChangeWindowSelect {
+    width: 32%;
+    min-width: 72px;
+    height: 44px;
+  }
+  .main__currencyListItem {
+    width: 100%;
+    height: 50px;
+  }
+  .main__currencyListItemName {
+    left: 40%;
+    font-size: 20px;
+    margin-left: 0px;
+    top: 15px;
+  }
+  .main__currencyListItemValue {
+    font-size: 13px;
+    margin-left: -20px;
+  }
+  .main__currencyListItemLike {
+    left: 15%;
+    width: 22%;
+    top: 20px;
+  }
+  .main .selectList {
+    width: 88vw;
+  }
+  .main .selectList__itemName {
+    font-size: 15px;
+  }
+}
+@media (max-width: 370px) {
+  .header__links {
+    font-size: 12px;
+  }
+  .header__titleStart {
+    font-size: 14px;
+  }
+  .header__timeValue {
+    width: 60px;
+    font-size: 12px;
+  }
+  .header__currencyList {
+    font-size: 12px;
+    padding: 3px 5px;
+  }
+  .header__currencyListGlobal {
+    width: 50%;
+  }
+  .header__currencyListLike {
+    width: 50%;
+  }
+  .header__selectDefaultCurrency {
+    width: 86px;
+    max-height: 40px;
+  }
+  .header__selectDefaultCurrencyValue {
+    font-size: 15px;
+  }
+  .main__header {
+    font-size: 12px;
+  }
+  .main__headerDop {
+    font-size: 14px;
+  }
+  .main__moneyChangeWindowResultInput {
+    height: 42px;
+    font-size: 13px;
+  }
+  .main__moneyChangeWindowSelect {
+    width: 36px;
+    min-width: 36px;
+    height: 42px;
+  }
+  .main__currencyListItemName {
+    font-size: 2vw;
+    color: rgb(0, 0, 0);
+    margin-left: 10px;
+    position: absolute;
+    top: 15px;
+    left: 14vw;
+  }
+  .main__currencyListItemValue {
+    font-size: 12px;
+  }
+  .main__currencyListItemLike {
+    left: 40%;
+  }
+  .main .selectList {
+    width: 100vw;
+    top: 54px;
+  }
+  .main .selectList__item {
+    width: 100px;
+  }
+  .main .selectList__itemName {
+    font-size: 13px;
+  }
 }

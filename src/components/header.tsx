@@ -2,6 +2,7 @@ import React from "react";
 import { MdAccessTime } from "react-icons/md";
 import SelectDefaultCurrency from "./selectDefaultCurrency";
 import { Link } from "react-router-dom";
+import { Box } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import { type RootState, type RootDispatch } from "../state/store";
 import { changeDefaultCurrency } from "../state/mainSlice";
@@ -35,7 +36,7 @@ const Header: React.FC<HeaderInterface> = ({
           console.log("change");
      }, [targetCurrency]);
      return (
-          <header className="header">
+          <Box className="header">
                <p className="header__titleStart">
                     Test<span className="header__titleEnd">Change</span>
                </p>
@@ -61,7 +62,7 @@ const Header: React.FC<HeaderInterface> = ({
                          <p className="header__timeValue">{time}</p>
                     </div>
                </div>
-          </header>
+          </Box>
      );
 };
 export default Header;

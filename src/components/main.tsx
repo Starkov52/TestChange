@@ -69,7 +69,7 @@ const Main: React.FC<MainType> = ({
           if (userLikeCurrency && setCurrencies) {
                const notLikeCurrencies: string[] = currencies.filter((itemALL: string) => {
                     const findLikeCurr = userLikeCurrency.find(
-                         (itemLIKE) => itemLIKE.name === itemALL
+                         (itemLIKE) => itemLIKE.name.toLowerCase() === itemALL.toLowerCase()
                     );
                     if (findLikeCurr) {
                          return false;
@@ -82,7 +82,7 @@ const Main: React.FC<MainType> = ({
                          return item.name;
                     }
                );
-               const result: string[] = [...likeCurrencies, ...notLikeCurrencies];
+               const result: string[] = [...likeCurrencies.reverse(), ...notLikeCurrencies];
                console.log("change LIKE currencies", result);
                setCurrencies(result);
           }

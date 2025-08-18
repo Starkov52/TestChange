@@ -1,0 +1,357 @@
+@media (max-width: 850px) {
+     .header {
+          flex-direction: column;
+          height: auto;
+          padding: 10px;
+
+          &__links {
+               margin: 0;
+               min-width: 0;
+               overflow: hidden;
+               text-overflow: ellipsis;
+               white-space: nowrap;
+          }
+
+          &__titleStart {
+               font-size: 20px;
+               margin-left: 5px;
+          }
+
+          &__time {
+               margin-right: 5px;
+
+               &Value {
+                    width: 90px;
+                    font-size: 15px;
+               }
+          }
+
+          &__selectDefaultCurrency {
+               width: 110px;
+
+               &Value {
+                    margin-left: 10%;
+               }
+          }
+          .selectList {
+               width: 120px;
+               &Item {
+                    width: 100px;
+               }
+          }
+     }
+
+     .main {
+          &__header {
+               width: 92vw;
+               margin-top: 5vh;
+               flex-wrap: wrap;
+
+               &Dop {
+                    font-size: 16px;
+               }
+          }
+
+          &__moneyChange {
+               width: 80vw;
+               margin-left: 0px;
+               margin-top: 30vw;
+               &Info {
+                    font-size: 20px;
+               }
+
+               &Course {
+                    font-size: 16px;
+               }
+
+               &Window {
+                    &Result {
+                         &Label {
+                              font-size: 16px;
+                              position: relative;
+                              top: -30px;
+                              left: -10px;
+                              font-weight: 900;
+                              margin-bottom: 10px;
+                         }
+
+                         &Input {
+                              width: 56vw;
+                              height: 46px;
+                              margin-left: -40px;
+                         }
+                    }
+
+                    &Sum {
+                         &Label {
+                              font-size: 16px;
+                              position: relative;
+                              top: -30px;
+                              left: -10px;
+                              font-weight: 900;
+                              margin-bottom: 10px;
+                         }
+
+                         &Input {
+                              width: 56vw;
+                              height: 46px;
+                              margin-left: -60px;
+                         }
+                    }
+
+                    &Select {
+                         width: 28%;
+                         min-width: 90px;
+                         height: 46px;
+                    }
+               }
+          }
+
+          &__currencyList {
+               width: 92vw;
+               flex-direction: row;
+
+               &Item {
+                    width: 38%;
+                    height: 48px;
+                    margin-top: 10px;
+
+                    &Name {
+                         font-size: 2vw;
+                         color: rgb(0, 0, 0);
+                         margin-left: 10px;
+                         position: absolute;
+                         top: 15px;
+                         left: 17vw;
+                    }
+
+                    &Value {
+                         font-size: 14px;
+                    }
+
+                    &Like {
+                         width: 28%;
+                         top: 6px;
+                         right: 8%;
+                    }
+               }
+
+               &Global {
+                    width: 55%;
+               }
+
+               &Like {
+                    width: 45%;
+               }
+          }
+
+          .selectList {
+               width: 150px;
+               top: 60px;
+
+               &__item {
+                    padding: 6px;
+
+                    &Name {
+                         font-size: 16px;
+                    }
+               }
+          }
+     }
+}
+
+@media (max-width: 500px) {
+     .header {
+          &__links {
+               font-size: 14px;
+          }
+
+          &__titleStart {
+               font-size: 18px;
+          }
+
+          &__time {
+               &Value {
+                    width: 70px;
+                    font-size: 14px;
+               }
+          }
+
+          &__currencyList {
+               font-size: 14px;
+               padding: 4px 6px;
+          }
+
+          &__selectDefaultCurrency {
+               width: 84px;
+               max-height: 50px;
+
+               &Value {
+               }
+          }
+     }
+
+     .main {
+          &__header {
+               &GlobalInfo,
+               &LikeInfo,
+               &Dop {
+                    font-size: 18px;
+               }
+          }
+
+          &__moneyChange {
+               &Window {
+                    &Sum,
+                    &Result {
+                         &Input {
+                              height: 44px;
+                              font-size: 14px;
+                         }
+                    }
+
+                    &Select {
+                         width: 32%;
+                         min-width: 72px;
+                         height: 44px;
+                    }
+               }
+          }
+
+          &__currencyList {
+               &Item {
+                    width: 100%;
+                    height: 50px;
+
+                    &Name {
+                         left: 40%;
+                         font-size: 20px;
+                         margin-left: 0px;
+                         top: 15px;
+                    }
+
+                    &Value {
+                         font-size: 13px;
+                         margin-left: -20px;
+                    }
+
+                    &Like {
+                         left: 15%;
+                         width: 22%;
+                         top: 20px;
+                    }
+               }
+          }
+
+          .selectList {
+               width: 88vw;
+
+               &__item {
+                    &Name {
+                         font-size: 15px;
+                    }
+               }
+          }
+     }
+}
+
+@media (max-width: 370px) {
+     .header {
+          &__links {
+               font-size: 12px;
+          }
+
+          &__titleStart {
+               font-size: 14px;
+          }
+
+          &__time {
+               &Value {
+                    width: 60px;
+                    font-size: 12px;
+               }
+          }
+
+          &__currencyList {
+               font-size: 12px;
+               padding: 3px 5px;
+
+               &Global {
+                    width: 50%;
+               }
+
+               &Like {
+                    width: 50%;
+               }
+          }
+
+          &__selectDefaultCurrency {
+               width: 86px;
+               max-height: 40px;
+
+               &Value {
+                    font-size: 15px;
+               }
+          }
+     }
+
+     .main {
+          &__header {
+               font-size: 12px;
+
+               &Dop {
+                    font-size: 14px;
+               }
+          }
+
+          &__moneyChange {
+               &Window {
+                    &Result {
+                         &Input {
+                              height: 42px;
+                              font-size: 13px;
+                         }
+                    }
+
+                    &Select {
+                         width: 36px;
+                         min-width: 36px;
+                         height: 42px;
+                    }
+               }
+          }
+
+          &__currencyList {
+               &Item {
+                    &Name {
+                         font-size: 2vw;
+                         color: rgb(0, 0, 0);
+                         margin-left: 10px;
+                         position: absolute;
+
+                         top: 15px;
+                         left: 14vw;
+                    }
+
+                    &Value {
+                         font-size: 12px;
+                    }
+                    &Like {
+                         left: 40%;
+                    }
+               }
+          }
+
+          .selectList {
+               width: 100vw;
+               top: 54px;
+
+               &__item {
+                    width: 100px;
+                    &Name {
+                         font-size: 13px;
+                    }
+               }
+          }
+     }
+}

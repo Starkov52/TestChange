@@ -2,7 +2,6 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { addLikeCurrency } from "../state/mainSlice";
 import { ListItem, ListItemText, ListItemButton } from "@mui/material";
-import { Star } from "@mui/icons-material";
 import { StarBorder } from "@mui/icons-material";
 import { IconButton } from "@mui/material";
 import { type RootDispatch } from "../state/store";
@@ -27,10 +26,14 @@ const CurrencyItem: React.FC<CurrencyLikeType> = ({ isLike, name, value }) => {
                }}
           >
                <ListItemButton>
-                    <ListItemText>{Number(value).toFixed(2)}</ListItemText>
-                    <ListItemText sx={{ fontSize: "19px" }}>{name}</ListItemText>
+                    <ListItemText className="main__currencyListItemValue">
+                         {Number(value).toFixed(2)}
+                    </ListItemText>
+                    <ListItemText className="main__currencyListItemName" sx={{ fontSize: "19px" }}>
+                         {name}
+                    </ListItemText>
                     <IconButton edge="end" aria-label={isLike ? "liked" : "like"} size="large">
-                         {isLike ? <Star /> : <StarBorder />}
+                         {isLike ? null : <StarBorder />}
                     </IconButton>
                </ListItemButton>
           </ListItem>

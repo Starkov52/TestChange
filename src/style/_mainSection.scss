@@ -199,6 +199,7 @@
                &Container {
                     margin-top: 5px;
                     display: flex;
+                    margin-left: 10px;
                     flex-wrap: wrap;
                }
           }
@@ -220,11 +221,11 @@
                cursor: pointer;
                &Name {
                     font-size: 2vw;
-                    color: grey;
+                    color: rgb(0, 0, 0);
                     margin-left: 10px;
                     position: absolute;
-                    top: 10px;
-                    left: 35%;
+                    top: 15px;
+                    left: 11vw;
                }
                &Value {
                     font-size: 1.7vw;
@@ -232,7 +233,7 @@
                }
                &Like {
                     position: absolute;
-                    top: 5px;
+                    top: 15px;
                     left: 77%;
                     width: 30%;
                }

@@ -35,8 +35,14 @@ const MoneyChange: React.FC<MoneyChangeType> = ({
 
                const result: number = Number(!auto ? value : inputCurrency) * Number(difference);
                const newInput: string = auto ? inputCurrency : (value as string);
-               setInputCurrency(newInput);
-               setOutputCurrency(result.toString());
+
+               if (!Number.isNaN(result)) {
+                    setInputCurrency(newInput);
+                    setOutputCurrency(result.toString());
+               } else if (Number.isNaN(value) && event) {
+                    event.currentTarget.placeholder = "Введите число!";
+                    event.currentTarget.style.background = "red";
+               }
           }
      };
      React.useEffect(() => {
