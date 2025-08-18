@@ -2,8 +2,8 @@
      .header {
           flex-direction: column;
           height: auto;
-          padding: 10px;
-          width: 97.2%;
+
+          width: 100vw;
 
           &__links {
                margin: 0;
@@ -36,7 +36,7 @@
           }
           .selectList {
                width: 100px;
-               overflow: hidden;
+
                &Item {
                     width: 90px;
                }
@@ -46,7 +46,7 @@
      .main {
           &__header {
                width: 92vw;
-               margin-top: 5vh;
+               margin-top: 1vh;
                flex-wrap: wrap;
 
                &Dop {
@@ -57,7 +57,7 @@
           &__moneyChange {
                width: 80vw;
                margin-left: 0px;
-               margin-top: 30vw;
+               margin-top: 20vw;
                &Info {
                     font-size: 20px;
                }
@@ -78,7 +78,7 @@
                          }
 
                          &Input {
-                              width: 56vw;
+                              width: 60vw;
                               height: 46px;
                               margin-left: -40px;
                          }
@@ -167,7 +167,7 @@
 
 @media (max-width: 500px) {
      .header {
-          width: 95.7%;
+          width: 99.7%;
           &__links {
                font-size: 14px;
           }
@@ -208,18 +208,38 @@
 
           &__moneyChange {
                &Window {
-                    &Sum,
                     &Result {
+                         &Label {
+                              font-size: 16px;
+                              position: relative;
+                              top: -30px;
+                              left: -10px;
+                              font-weight: 900;
+                              margin-bottom: 10px;
+                         }
+
                          &Input {
-                              height: 44px;
-                              font-size: 14px;
+                              width: 60vw;
+                              height: 46px;
+                              margin-left: -40px;
                          }
                     }
 
-                    &Select {
-                         width: 32%;
-                         min-width: 72px;
-                         height: 44px;
+                    &Sum {
+                         &Label {
+                              font-size: 16px;
+                              position: relative;
+                              top: -30px;
+                              left: -10px;
+                              font-weight: 900;
+                              margin-bottom: 10px;
+                         }
+
+                         &Input {
+                              width: 54vw;
+                              height: 46px;
+                              margin-left: -60px;
+                         }
                     }
                }
           }
@@ -313,12 +333,38 @@
           &__moneyChange {
                &Window {
                     &Result {
+                         &Label {
+                              font-size: 16px;
+                              position: relative;
+                              top: -30px;
+                              left: -10px;
+                              font-weight: 900;
+                              margin-bottom: 10px;
+                         }
+
                          &Input {
-                              height: 42px;
-                              font-size: 13px;
+                              width: 60vw;
+                              height: 46px;
+                              margin-left: -40px;
                          }
                     }
 
+                    &Sum {
+                         &Label {
+                              font-size: 16px;
+                              position: relative;
+                              top: -30px;
+                              left: -10px;
+                              font-weight: 900;
+                              margin-bottom: 10px;
+                         }
+
+                         &Input {
+                              width: 60vw;
+                              height: 46px;
+                              margin-left: -60px;
+                         }
+                    }
                     &Select {
                          width: 36px;
                          min-width: 36px;

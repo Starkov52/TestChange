@@ -597,8 +597,7 @@ html {
         -ms-flex-direction: column;
             flex-direction: column;
     height: auto;
-    padding: 10px;
-    width: 97.2%;
+    width: 100vw;
   }
   .header__links {
     margin: 0;
@@ -626,14 +625,13 @@ html {
   }
   .header .selectList {
     width: 100px;
-    overflow: hidden;
   }
   .header .selectListItem {
     width: 90px;
   }
   .main__header {
     width: 92vw;
-    margin-top: 5vh;
+    margin-top: 1vh;
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
   }
@@ -643,7 +641,7 @@ html {
   .main__moneyChange {
     width: 80vw;
     margin-left: 0px;
-    margin-top: 30vw;
+    margin-top: 20vw;
   }
   .main__moneyChangeInfo {
     font-size: 20px;
@@ -660,7 +658,7 @@ html {
     margin-bottom: 10px;
   }
   .main__moneyChangeWindowResultInput {
-    width: 56vw;
+    width: 60vw;
     height: 46px;
     margin-left: -40px;
   }
@@ -736,7 +734,7 @@ html {
 }
 @media (max-width: 500px) {
   .header {
-    width: 95.7%;
+    width: 99.7%;
   }
   .header__links {
     font-size: 14px;
@@ -759,14 +757,31 @@ html {
   .main__headerGlobalInfo, .main__headerLikeInfo, .main__headerDop {
     font-size: 18px;
   }
-  .main__moneyChangeWindowSumInput, .main__moneyChangeWindowResultInput {
-    height: 44px;
-    font-size: 14px;
+  .main__moneyChangeWindowResultLabel {
+    font-size: 16px;
+    position: relative;
+    top: -30px;
+    left: -10px;
+    font-weight: 900;
+    margin-bottom: 10px;
   }
-  .main__moneyChangeWindowSelect {
-    width: 32%;
-    min-width: 72px;
-    height: 44px;
+  .main__moneyChangeWindowResultInput {
+    width: 60vw;
+    height: 46px;
+    margin-left: -40px;
+  }
+  .main__moneyChangeWindowSumLabel {
+    font-size: 16px;
+    position: relative;
+    top: -30px;
+    left: -10px;
+    font-weight: 900;
+    margin-bottom: 10px;
+  }
+  .main__moneyChangeWindowSumInput {
+    width: 54vw;
+    height: 46px;
+    margin-left: -60px;
   }
   .main__currencyListItem {
     width: 100%;
@@ -828,9 +843,31 @@ html {
   .main__headerDop {
     font-size: 14px;
   }
+  .main__moneyChangeWindowResultLabel {
+    font-size: 16px;
+    position: relative;
+    top: -30px;
+    left: -10px;
+    font-weight: 900;
+    margin-bottom: 10px;
+  }
   .main__moneyChangeWindowResultInput {
-    height: 42px;
-    font-size: 13px;
+    width: 60vw;
+    height: 46px;
+    margin-left: -40px;
+  }
+  .main__moneyChangeWindowSumLabel {
+    font-size: 16px;
+    position: relative;
+    top: -30px;
+    left: -10px;
+    font-weight: 900;
+    margin-bottom: 10px;
+  }
+  .main__moneyChangeWindowSumInput {
+    width: 60vw;
+    height: 46px;
+    margin-left: -60px;
   }
   .main__moneyChangeWindowSelect {
     width: 36px;
