@@ -38,7 +38,7 @@
                width: 100px;
 
                &Item {
-                    width: 90px;
+                    width: 95px;
                }
           }
      }
@@ -68,19 +68,20 @@
 
                &Window {
                     &Result {
+                         margin-left: 20px;
                          &Label {
                               font-size: 16px;
                               position: relative;
                               top: -30px;
-                              left: -10px;
+                              left: -30px;
                               font-weight: 900;
                               margin-bottom: 10px;
                          }
 
                          &Input {
-                              width: 60vw;
+                              width: 56vw;
                               height: 46px;
-                              margin-left: -40px;
+                              margin-left: -60px;
                          }
                     }
 
@@ -104,9 +105,10 @@
                     &Select {
                          width: 28%;
                          max-width: 90px;
+                         margin-left: 5px;
                          height: 46px;
                          &Item {
-                              width: 85px;
+                              width: 95px;
                          }
                     }
                }
@@ -151,7 +153,7 @@
           }
 
           .selectList {
-               max-width: 95px;
+               min-width: 105px;
                top: 60px;
                align-items: flex-start;
                &__item {
@@ -213,15 +215,22 @@
                               font-size: 16px;
                               position: relative;
                               top: -30px;
-                              left: -10px;
+                              left: -30px;
                               font-weight: 900;
                               margin-bottom: 10px;
                          }
 
                          &Input {
-                              width: 60vw;
+                              width: 61vw;
                               height: 46px;
-                              margin-left: -40px;
+                              margin-left: -60px;
+                         }
+                         &Select {
+                              max-width: 100px;
+                              height: 46px;
+                              &Item {
+                                   width: 95px;
+                              }
                          }
                     }
 
@@ -236,9 +245,16 @@
                          }
 
                          &Input {
-                              width: 54vw;
+                              width: 60vw;
                               height: 46px;
                               margin-left: -60px;
+                         }
+                         &Select {
+                              max-width: 90px;
+                              height: 46px;
+                              &Item {
+                                   width: 85px;
+                              }
                          }
                     }
                }
@@ -270,7 +286,7 @@
           }
 
           .selectList {
-               width: 88vw;
+               width: 85px;
 
                &__item {
                     &Name {
@@ -337,15 +353,20 @@
                               font-size: 16px;
                               position: relative;
                               top: -30px;
-                              left: -10px;
+                              left: -30px;
                               font-weight: 900;
                               margin-bottom: 10px;
                          }
 
                          &Input {
-                              width: 60vw;
+                              width: 58vw;
                               height: 46px;
-                              margin-left: -40px;
+                              margin-left: -60px;
+                         }
+                         &Select {
+                              width: 26px;
+                              min-width: 36px;
+                              height: 42px;
                          }
                     }
 
@@ -364,11 +385,11 @@
                               height: 46px;
                               margin-left: -60px;
                          }
-                    }
-                    &Select {
-                         width: 36px;
-                         min-width: 36px;
-                         height: 42px;
+                         &Select {
+                              width: 26px;
+                              min-width: 36px;
+                              height: 42px;
+                         }
                     }
                }
           }
@@ -395,11 +416,11 @@
           }
 
           .selectList {
-               width: 100vw;
+               max-width: 40px;
                top: 54px;
-
+               left: -20px;
                &__item {
-                    width: 100px;
+                    max-width: 70px;
                     &Name {
                          font-size: 13px;
                     }
