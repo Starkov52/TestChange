@@ -1,8 +1,6 @@
 services:
- web:
+  web:
     build: .
-    image:  jwjwjwjjw 
+    image: myapp
     ports:
-      -"80:80"
-    restart: always
-    
+      - "80:80"
