@@ -23,7 +23,7 @@ const MoneyChange: React.FC<MoneyChangeType> = ({
      const [inputCurrency, setInputCurrency] = React.useState<string>("");
      const [outputCurrency, setOutputCurrency] = React.useState<string>("");
      const [targetOneCurrency, setTargetOneCurrency] = React.useState<string>(defaultCurr);
-     const [targetTwoCurrency, setTargetTwoCurrency] = React.useState<string>("");
+     const [targetTwoCurrency, setTargetTwoCurrency] = React.useState<string>("usd");
 
      const handleCalculate = (
           event: React.ChangeEvent<HTMLInputElement> | null,
@@ -57,6 +57,9 @@ const MoneyChange: React.FC<MoneyChangeType> = ({
           if (targetOneCurrency !== "" && targetTwoCurrency !== "" && inputCurrency !== "") {
                handleCalculate(null, difference, true);
           }
+     }, [difference]);
+     React.useEffect(() => {
+          handleGetCurrencys(targetOneCurrency, targetTwoCurrency);
      }, [difference]);
      return (
           <section className="main__moneyChange">
