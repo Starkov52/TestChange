@@ -1,0 +1,8 @@
+services:
+ web:
+    build: .
+    image:  jwjwjwjjw 
+    ports:
+      -"80:80"
+    restart: always
+    
