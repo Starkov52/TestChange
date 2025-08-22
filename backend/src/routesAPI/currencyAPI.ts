@@ -47,3 +47,21 @@ console.log("КЕЕЕШ")
 }
 })
 export default routerForCurrencyAPI
+/**
+ * @swagger
+ * /api/currency:
+ *   get:
+ *     summary: Получение списка содеражащегов себе все валюты в формате ISO4217
+ *     responses:
+ *      200:
+ *        description: Список валют
+ *        content: 
+ *          application/json:
+ *            schema:
+ *              type: array
+ *              items:
+ *               type: string
+ *      400: 
+ *        description: ОШИБКА
+ * 
+*/

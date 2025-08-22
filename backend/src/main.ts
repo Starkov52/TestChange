@@ -14,6 +14,11 @@ app.use(express.json())
 app.use(cors())
 app.use(cookieParser())
 
+
+
+
+
+
 app.use('/api/currency',routerForCurrencyAPI)
 setupSwagger(app)
 app.use("/api/rates",routerForRates)

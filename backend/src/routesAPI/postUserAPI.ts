@@ -3,6 +3,8 @@ import {DB} from "../main.ts"
 import axios from "axios";
 import { v4 as uuidv4 } from "uuid";
 import type { ResponseCurrencyItem } from "./ratesCurrencyAPI.ts";
+import { PrismaClient } from "../generated/prisma/index.js";
+
 
 const routerForPostUserAPI = Router()
 export type TypeUserData = {
@@ -12,6 +14,7 @@ export type TypeUserData = {
     created_at: string
     updated_at:string
 }
+const prisma = new PrismaClient()
 routerForPostUserAPI.post("/", async (req,res) => {
     const cookieID:string = req.cookies.user_id
     try{
@@ -23,10 +26,8 @@ routerForPostUserAPI.post("/", async (req,res) => {
         created_at: req.body.created_at,
         updated_at:new Date().toISOString().slice(0,10)
     }
-    axios.post(`${DB}/testChangeUsers.json`,{
-        userData
-    }).then((response) => {
-        res.json(response)
+    prisma.user.create({
+        data:{name: 'NAME', email:'GMAIL'}
     })
 } else {
     const userId = uuidv4()
@@ -43,13 +44,8 @@ const userData:TypeUserData  = {
     created_at: req.body.created_at,
     updated_at:new Date().toISOString().slice(0,10)
 }
-axios.post(`${DB}/testChangeUsers.json`,{
-    userData
-}).then((response) => {
-    res.json(response)
-}).catch((error:any) => {
-    console.error(error)
-    throw new Error(error.message)
+prisma.user.create({
+    data:{name: 'NAME', email:'GMAIL'}
 })
 }
     } catch (error:any) {
