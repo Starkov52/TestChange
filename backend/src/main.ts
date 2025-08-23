@@ -24,6 +24,7 @@ function addCache(req:express.Request,res:express.Response,next:express.NextFunc
         const targetCache:CacheType | undefined = cacheObject[URLPathID]
         if(targetCache && targetCache.time > Date.now()) {
             res.json(targetCache.inner)
+            console.log('данные из кеша')
         } else { 
     const oldResponse = res.json 
     res.json = function (data:any) {
@@ -32,13 +33,13 @@ function addCache(req:express.Request,res:express.Response,next:express.NextFunc
         inner: data,
         time: Date.now() + 300000
     }
+    console.log('КЕШ НА УРОВНЕ ЗАПРОСОВ')
     return oldResponse.call(res,data)
 }
+next()
         } 
-    } else {
-       return next()
-    }
-  return next()
+    } 
+
 }
 
 app.use(addCache)
