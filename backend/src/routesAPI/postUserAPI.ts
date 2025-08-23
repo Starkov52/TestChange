@@ -15,7 +15,7 @@ export type TypeUserData = {
     updated_at:string
 }
 const prisma = new PrismaClient()
-routerForPostUserAPI.post("/", async (req,res) => {
+ routerForPostUserAPI.post("/", async (req,res) => {
     const cookieID:string = req.cookies.user_id
     try{
     if(cookieID) {

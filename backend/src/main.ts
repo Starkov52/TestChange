@@ -13,17 +13,35 @@ export const DB:string = "https://telegrambotfishcombat-default-rtdb.firebaseio.
 app.use(express.json()) 
 app.use(cors())
 app.use(cookieParser())
-
-const cacheObject:Record<string,{inner: any,time:number}> = {}
+type CacheType = {
+    inner: any,time:number
+}
+const cacheObject:Record<string,CacheType> = {}
 
 function addCache(req:express.Request,res:express.Response,next:express.NextFunction) {
     if(req.method === 'GET') {
-    } else {
-        return next()
+        const URLPathID:string = req.originalUrl
+        const targetCache:CacheType | undefined = cacheObject[URLPathID]
+        if(targetCache && targetCache.time > Date.now()) {
+            res.json(targetCache.inner)
+        } else { 
+    const oldResponse = res.json 
+    res.json = function (data:any) {
+   
+    cacheObject[URLPathID] = {
+        inner: data,
+        time: Date.now() + 300000
     }
+    return oldResponse.call(res,data)
+}
+        } 
+    } else {
+       return next()
+    }
+  return next()
 }
 
-
+app.use(addCache)
 
 app.use('/api/currency',routerForCurrencyAPI)
 setupSwagger(app)

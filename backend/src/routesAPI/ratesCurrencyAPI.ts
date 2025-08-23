@@ -52,7 +52,7 @@ routerForRates.get("/:baseCurrency", async (request,response) => {
         try {
    if(baseCurrency && baseCurrency.length === 3 && allCurrency.includes(baseCurrency.toUpperCase())) {
     const data = await getDataByOuterAPI(baseCurrency)
-    sendCache(data,86400,baseCurrency,cacheObject)
+    sendCache(data,1000 * 60 * 60 * 24,baseCurrency,cacheObject)
     response.json(data)
    } else if(!baseCurrency) {
     const data = await getDataByOuterAPI('USD')

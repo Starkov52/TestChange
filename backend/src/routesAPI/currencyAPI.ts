@@ -7,7 +7,7 @@ export type cacheType<data> =  {
     time:number
 }
 const cacheObject:Record<string,cacheType<any>> = {}
-const time:number = 60 * 60
+const time:number = 1000 * 60 * 60
 export function sendCache<DATA>(data:DATA,time:number,key:string,targetCache:Record<string,cacheType<any>>){
     targetCache[key] = {
     data:data,
