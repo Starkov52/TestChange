@@ -38,12 +38,15 @@ console.log("КЕЕЕШ")
     
         response.json(currencyes),
         sendCache(currencyes,time,'currency',cacheObject)
+    }).catch((error:any) => {
+        console.error('Error: '+ error.message)
     })
      
     }
     
-} catch (error) {
-    console.error(error)
+} catch (error:any) {
+    console.error(error.message)
+    response.status(502).json({error: "Ошибка при взаимодействии с внешним API :("})
 }
 })
 export default routerForCurrencyAPI
@@ -51,7 +54,7 @@ export default routerForCurrencyAPI
  * @swagger
  * /api/currency:
  *   get:
- *     summary: Получение списка содеражащегов себе все валюты в формате ISO4217
+ *     summary: Получение списка содеражащего в себе все валюты в формате ISO4217
  *     responses:
  *      200:
  *        description: Список валют

@@ -14,8 +14,14 @@ app.use(express.json())
 app.use(cors())
 app.use(cookieParser())
 
+const cacheObject:Record<string,{inner: any,time:number}> = {}
 
-
+function addCache(req:express.Request,res:express.Response,next:express.NextFunction) {
+    if(req.method === 'GET') {
+    } else {
+        return next()
+    }
+}
 
 
 

@@ -39,15 +39,17 @@ async function getDataByOuterAPI(base:string):Promise<ResponseType> {
         }
         result = targetCurrencyes
     }).catch((error:any) => {
-        console.error(error)
-        throw new Error('Ошибка запроса: ' + error.message)
+        console.error('Ошибка запроса: ' + error.message)
+
     })
     return result
 }
 const allCurrency:string[] = ["USD","AED","AFN","ALL","AMD","ANG","AOA","ARS","AUD","AWG","AZN","BAM","BBD","BDT","BGN","BHD","BIF","BMD","BND","BOB","BRL","BSD","BTN","BWP","BYN","BZD","CAD","CDF","CHF","CLP","CNY","COP","CRC","CUP","CVE","CZK","DJF","DKK","DOP","DZD","EGP","ERN","ETB","EUR","FJD","FKP","FOK","GBP","GEL","GGP","GHS","GIP","GMD","GNF","GTQ","GYD","HKD","HNL","HRK","HTG","HUF","IDR","ILS","IMP","INR","IQD","IRR","ISK","JEP","JMD","JOD","JPY","KES","KGS","KHR","KID","KMF","KRW","KWD","KYD","KZT","LAK","LBP","LKR","LRD","LSL","LYD","MAD","MDL","MGA","MKD","MMK","MNT","MOP","MRU","MUR","MVR","MWK","MXN","MYR","MZN","NAD","NGN","NIO","NOK","NPR","NZD","OMR","PAB","PEN","PGK","PHP","PKR","PLN","PYG","QAR","RON","RSD","RUB","RWF","SAR","SBD","SCR","SDG","SEK","SGD","SHP","SLE","SLL","SOS","SRD","SSP","STN","SYP","SZL","THB","TJS","TMT","TND","TOP","TRY","TTD","TVD","TWD","TZS","UAH","UGX","UYU","UZS","VES","VND","VUV","WST","XAF","XCD","XCG","XDR","XOF","XPF","YER","ZAR","ZMW","ZWL"]
 routerForRates.get("/:baseCurrency", async (request,response) => {
     const {baseCurrency} = request.params
-    if(!getCache(baseCurrency,cacheObject)) {
+    const cache = getCache(baseCurrency,cacheObject)
+    if(!cache) {
+        try {
    if(baseCurrency && baseCurrency.length === 3 && allCurrency.includes(baseCurrency.toUpperCase())) {
     const data = await getDataByOuterAPI(baseCurrency)
     sendCache(data,86400,baseCurrency,cacheObject)
@@ -59,9 +61,13 @@ routerForRates.get("/:baseCurrency", async (request,response) => {
    } else {
     response.json('Невалидный формат валюты')
    }
+} catch(error:any) {
+    console.error('Error: ' + error.message)
+    response.status(502).json({error:{message: 'Произошла ошибка при взаимодействии с внешним API   0_0'}})
+}
 
  
-} else if(getCache(baseCurrency,cacheObject)) {
+} else if(cache) {
 const data:cacheType<ResponseType> = getCache(baseCurrency,cacheObject)!
 console.log('КЕШ НА 24 ЧАСА')
 response.json(data)
