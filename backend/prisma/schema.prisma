@@ -9,9 +9,9 @@ datasource db {
 }
 
 model User {
-user_id String @id
-base_currency String
-favorites String[]
-created_at String
-updated_at String
+  user_id       String @id
+  base_currency String
+  favorites     String[]
+  created_at    String
+  updated_at    String
 }

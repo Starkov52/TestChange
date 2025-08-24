@@ -1,4 +1,4 @@
-import express from 'express'
+import express, { Request, Response, NextFunction } from 'express';
 import cors from "cors"
 import routerForCurrencyAPI from './routesAPI/currencyAPI.ts'
 import routerForRates from './routesAPI/ratesCurrencyAPI.ts'
@@ -18,28 +18,30 @@ type CacheType = {
 }
 const cacheObject:Record<string,CacheType> = {}
 
-function addCache(req:express.Request,res:express.Response,next:express.NextFunction) {
+function addCache(req:Request,res:Response,next:NextFunction) {
     if(req.method === 'GET') {
         const URLPathID:string = req.originalUrl
-        const targetCache:CacheType | undefined = cacheObject[URLPathID]
+        // @ts-ignore
+        const targetCache:any = cacheObject[URLPathID]
         if(targetCache && targetCache.time > Date.now()) {
-            res.json(targetCache.inner)
+            res.json(targetCache?.inner)
             console.log('данные из кеша')
-        } else { 
+        } else  { 
     const oldResponse = res.json 
     res.json = function (data:any) {
    
-    cacheObject[URLPathID] = {
+        !(data?.message === 'Пользователь не найден') ? cacheObject[URLPathID]! = {
         inner: data,
         time: Date.now() + 300000
-    }
+    } : null
     console.log('КЕШ НА УРОВНЕ ЗАПРОСОВ')
     return oldResponse.call(res,data)
 }
 next()
         } 
-    } 
-
+    }else { 
+return next()
+    }
 }
 
 app.use(addCache)

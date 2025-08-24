@@ -1,8 +1,6 @@
 import { Router } from "express";
-import {DB} from "../main.ts"
-import axios from "axios";
 import { v4 as uuidv4 } from "uuid";
-import type { ResponseCurrencyItem } from "./ratesCurrencyAPI.ts";
+import { Request, Response} from "express";
 import { PrismaClient } from "../generated/prisma/index.js";
 
 
@@ -15,7 +13,7 @@ export type TypeUserData = {
     updated_at:string
 }
 const prisma = new PrismaClient()
- routerForPostUserAPI.post("/", async (req,res) => {
+ routerForPostUserAPI.post("/", async (req:Request,res:Response) => {
     const cookieID:string = req.cookies.user_id
     try{
     if(cookieID) {

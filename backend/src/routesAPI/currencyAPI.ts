@@ -1,6 +1,7 @@
 import { Router } from "express";
 import axios from "axios";
 import {url} from "../main.ts";
+import { Request, Response} from "express";
 const routerForCurrencyAPI = Router()
 export type cacheType<data> =  {
     data:data,
@@ -24,7 +25,7 @@ return targetCache.data
     delete cacheObject[key]
 }
 }
-routerForCurrencyAPI.get('/',async (request,response) => {
+routerForCurrencyAPI.get('/',async (request:Request,response:Response) => {
 try {
 
     const cache = getCache('currency',cacheObject)
@@ -33,8 +34,8 @@ try {
 response.json(cache)
 console.log("КЕЕЕШ")
     } else {
-        axios.get(url + '/USD').then((responseAXIOS) => {
-            const currencyes:string[] = Object.keys(responseAXIOS.data.conversion_rates)
+        axios.get(url + '/USD').then((responseAXIOS:any) => {
+            const currencyes:string[] = Object.keys(responseAXIOS.data.conversion_rates ) 
     
         response.json(currencyes),
         sendCache(currencyes,time,'currency',cacheObject)

@@ -1,12 +1,9 @@
 import { Router } from "express";
-import { v4 as uuid } from "uuid";
-import {DB} from "../main.ts"
-import axios from "axios";
-import type { TypeUserData } from "./postUserAPI.ts";
+import { Request, Response, NextFunction } from "express";
 import { PrismaClient } from "../generated/prisma/index.js";
 const RouterForGetUserAPI = Router()
 const prisma = new PrismaClient()
-RouterForGetUserAPI.get('/',async (req,res) => {
+RouterForGetUserAPI.get('/',async (req:Request,res:Response) => {
     const cookieID:string = req.cookies.user_id
     try {
     if(cookieID) {
