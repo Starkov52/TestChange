@@ -24,6 +24,7 @@ const prisma = new PrismaClient()
         created_at: req.body.created_at,
         updated_at:new Date().toISOString().slice(0,10)
     }
+    await prisma.$connect()
    await prisma.user.upsert({
     where:{
         user_id: cookieID.toString()

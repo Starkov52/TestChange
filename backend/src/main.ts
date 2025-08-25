@@ -52,4 +52,4 @@ app.use("/api/rates",routerForRates)
 
 app.use("/api/user",routerForPostUserAPI)
 app.use("/api/user",RouterForGetUserAPI)
-app.listen(port, () => console.log('СЕРВ ЗАПУЩЕН'))
+app.listen(port, '0.0.0.0', () => console.log('СЕРВ ЗАПУЩЕН'))
