@@ -40,7 +40,7 @@
     "verbatimModuleSyntax": false,
     "isolatedModules": false,
     "allowImportingTsExtensions":true,
-    "noUncheckedSideEffectImports": true,
+    "esModuleInterop": true,
     "moduleDetection": "force",
     "skipLibCheck": true,
   }

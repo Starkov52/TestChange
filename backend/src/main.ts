@@ -6,13 +6,22 @@ import cookieParser from 'cookie-parser'
 import routerForPostUserAPI from './routesAPI/postUserAPI.ts'
 import RouterForGetUserAPI from './routesAPI/getUserAPI.ts'
 import { setupSwagger } from './swagger.ts'
+export const url: string = `https://v6.exchangerate-api.com/v6/13203235093b483f2f660a32/latest`;
+
+export function startServer(type: 'SERVER' | 'TEST'){
 const app = express()
 const port:number = 3000
-export const url: string = `https://v6.exchangerate-api.com/v6/13203235093b483f2f660a32/latest`;
-export const DB:string = "https://telegrambotfishcombat-default-rtdb.firebaseio.com/"
 app.use(express.json()) 
 app.use(cors())
 app.use(cookieParser())
+app.use(addCache)
+
+app.use('/api/currency',routerForCurrencyAPI)
+setupSwagger(app)
+app.use("/api/rates",routerForRates)
+
+app.use("/api/user",routerForPostUserAPI)
+app.use("/api/user",RouterForGetUserAPI)
 type CacheType = {
     inner: any,time:number
 }
@@ -30,7 +39,7 @@ function addCache(req:Request,res:Response,next:NextFunction) {
     const oldResponse = res.json 
     res.json = function (data:any) {
    
-        !(data?.message === 'Пользователь не найден') ? cacheObject[URLPathID]! = {
+        !(data?.message === 'Пользователь не найден' || data.base === 'USD') ? cacheObject[URLPathID]! = {
         inner: data,
         time: Date.now() + 300000
     } : null
@@ -44,12 +53,11 @@ return next()
     }
 }
 
-app.use(addCache)
+if(type === 'SERVER') {
+app.listen(3000, '0.0.0.0', () => console.log('СЕРВ ЗАПУЩЕН'))
+}else {
+    return app
+}
 
-app.use('/api/currency',routerForCurrencyAPI)
-setupSwagger(app)
-app.use("/api/rates",routerForRates)
-
-app.use("/api/user",routerForPostUserAPI)
-app.use("/api/user",RouterForGetUserAPI)
-app.listen(port, '0.0.0.0', () => console.log('СЕРВ ЗАПУЩЕН'))
+}
+startServer("SERVER")
