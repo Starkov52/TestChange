@@ -44,12 +44,16 @@ export async function postUser(req: express.Request, res: express.Response) {
                     created_at: req.body.created_at,
                     updated_at: new Date().toISOString().slice(0, 10),
                };
-               await prisma.user.create({
-                    data: {
-                         ...userData,
-                    },
-               });
-               res.json(userData);
+               if (req.body.base_currency.length === 3) {
+                    await prisma.user.create({
+                         data: {
+                              ...userData,
+                         },
+                    });
+                    res.json(userData);
+               } else {
+               }
+               res.json("Формат валюты должен быть ISO4217");
           }
      } catch (error: any) {
           console.error(error.message);

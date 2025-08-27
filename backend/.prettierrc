@@ -1,8 +1,8 @@
 {
-   "tabWidth": 5,
-   "bracketSpacing": true,
-   "trailingComma": "all",
-   "semi": true,
-   "printWidth": 220,
-   "arrowParens": "always"
+    "tabWidth": 5,
+    "bracketSpacing": true,
+    "trailingComma": "all",
+    "semi": true,
+    "printWidth": 220,
+    "arrowParens": "always"
 }
