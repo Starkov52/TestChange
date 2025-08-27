@@ -6,12 +6,11 @@ import { Box } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import { type RootState, type RootDispatch } from "../state/store";
 import { changeDefaultCurrency } from "../state/mainSlice";
+import type { currencyListType } from "../types/index";
 interface HeaderInterface {
      currencies: string[];
-     currencyListIsOpen: { one: boolean; two: boolean; header: boolean };
-     setCurrencyListIsOpen: React.Dispatch<
-          React.SetStateAction<{ one: boolean; two: boolean; header: boolean }>
-     >;
+     currencyListIsOpen: currencyListType;
+     setCurrencyListIsOpen: React.Dispatch<React.SetStateAction<currencyListType>>;
 }
 const Header: React.FC<HeaderInterface> = ({
      currencies,

@@ -4,6 +4,7 @@ import { addLikeCurrency } from "../state/mainSlice";
 import { ListItem, ListItemText, ListItemButton } from "@mui/material";
 import { StarBorder } from "@mui/icons-material";
 import { IconButton } from "@mui/material";
+
 import { type RootDispatch } from "../state/store";
 interface CurrencyLikeType {
      isLike: boolean;

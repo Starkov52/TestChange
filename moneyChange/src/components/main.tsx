@@ -3,13 +3,12 @@ import MoneyChange from "./moneyChange";
 import CurrencyList from "./currencyList";
 import { useSelector } from "react-redux";
 import type { RootState } from "../state/store";
+import type { currencyListType } from "../types";
 interface MainType {
      type: "CHANGE" | "LIST";
      currencies: string[];
-     currencyListIsOpen: { one: boolean; two: boolean; header: boolean };
-     setCurrencyListIsOpen: React.Dispatch<
-          React.SetStateAction<{ one: boolean; two: boolean; header: boolean }>
-     >;
+     currencyListIsOpen: currencyListType;
+     setCurrencyListIsOpen: React.Dispatch<React.SetStateAction<currencyListType>>;
      setCurrencies?: React.Dispatch<React.SetStateAction<string[]>>;
 }
 const Main: React.FC<MainType> = ({

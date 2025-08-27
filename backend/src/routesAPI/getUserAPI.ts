@@ -1,33 +1,8 @@
 import { Router } from "express";
-import { Request, Response, NextFunction } from "express";
-import { PrismaClient } from "../generated/prisma/index.js";
-const RouterForGetUserAPI = Router()
-const prisma = new PrismaClient()
-RouterForGetUserAPI.get('/',async (req:Request,res:Response) => {
-    const cookieID:string = req.cookies.user_id
-    try {
-    if(cookieID) {
-       const result =  await prisma.user.findUnique({
-        where:{
-            user_id: cookieID
-        }
-       })
-       if(result) {
-        res.json(result)
-       } else {
-        res.json({message:'Пользователь не найден'})
-       }
-    }
-    else {
-        res.json({message:'Пользователь не найден'})
-       }
-} catch (error:any) {
-    console.error('Error: ',error.message)
-    res.status(502).json({error: "Не удалось получить данные с БД :("})
-
-}
-})
-export default RouterForGetUserAPI
+import { getUser } from "../controllers/getUserController";
+const RouterForGetUserAPI = Router();
+RouterForGetUserAPI.get("/", getUser);
+export default RouterForGetUserAPI;
 
 /**
  * @swagger

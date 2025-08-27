@@ -1,0 +1,131 @@
+[33mcommit 527435b1d62d788887e9a9638b43dc068d8aa08e[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmaster[m[33m, [m[1;31mgitLab/master[m[33m)[m
+Author: Starkov52 <valuznnicartem@gmail.com>
+Date:   Tue Aug 26 14:57:26 2025 +0300
+
+    wrote unit tests for back-end
+
+[33mcommit 6859b43d4e8682e39ca3a54ccd72f47f8734489a[m[33m ([m[1;31morigin/master[m[33m)[m
+Author: Starkov52 <valuznnicartem@gmail.com>
+Date:   Mon Aug 25 16:04:49 2025 +0300
+
+    add report
+
+[33mcommit b45a3f50cba4c0f0d61276a86422d50c2ef690bf[m
+Author: Starkov52 <valuznnicartem@gmail.com>
+Date:   Mon Aug 25 15:10:19 2025 +0300
+
+    end
+
+[33mcommit f4511b27d687a95eb0643cf24d0da6271682c884[m
+Author: Starkov52 <valuznnicartem@gmail.com>
+Date:   Mon Aug 25 00:04:29 2025 +0300
+
+    continue
+
+[33mcommit 3608650ce04fe7f28e67e5ba83af3af5ab5bbe2a[m
+Author: Starkov52 <valuznnicartem@gmail.com>
+Date:   Sat Aug 23 21:30:21 2025 +0300
+
+    fix
+
+[33mcommit 3713c48cf3aac138c1614c71a9b892559426f974[m
+Author: Starkov52 <valuznnicartem@gmail.com>
+Date:   Sat Aug 23 21:23:59 2025 +0300
+
+    Added query level caching
+
+[33mcommit c55ae1846e9a4dd61532944a43501c16e59ca17a[m
+Author: Starkov52 <valuznnicartem@gmail.com>
+Date:   Sat Aug 23 19:37:15 2025 +0300
+
+    continue..
+
+[33mcommit 46cec285045f8e6636fb9dabcd1653d51968a5e0[m
+Author: Starkov52 <valuznnicartem@gmail.com>
+Date:   Fri Aug 22 18:48:06 2025 +0300
+
+    add postgreSQL and write swagger doc
+
+[33mcommit ac4790cf19ba80143e0187b753d291b9ce332ec2[m
+Author: Starkov52 <valuznnicartem@gmail.com>
+Date:   Thu Aug 21 19:58:04 2025 +0300
+
+    continue back-end and start write  swagger
+
+[33mcommit 5ea0073a4896ebb4a2ae44fab38631eed1900cac[m
+Author: Starkov52 <valuznnicartem@gmail.com>
+Date:   Wed Aug 20 20:27:54 2025 +0300
+
+    start create back-end
+
+[33mcommit 3caa376c9777c92bc920143158680f24da671f0f[m
+Author: Starkov52 <valuznnicartem@gmail.com>
+Date:   Tue Aug 19 16:46:06 2025 +0300
+
+    fix.
+
+[33mcommit f3be2234d0313053fab730f7d26a20e8a6b690e4[m
+Author: Starkov52 <valuznnicartem@gmail.com>
+Date:   Tue Aug 19 16:12:24 2025 +0300
+
+    add docker
+
+[33mcommit e7f24eb3ecf9c54a4cfe8ae5fc695227cfbe72ce[m
+Author: Starkov52 <valuznnicartem@gmail.com>
+Date:   Tue Aug 19 11:37:40 2025 +0300
+
+    fix
+
+[33mcommit a71bbf759627531aec2a55cdbfeb0a39f298a508[m
+Author: Starkov52 <valuznnicartem@gmail.com>
+Date:   Tue Aug 19 00:56:45 2025 +0300
+
+    last
+
+[33mcommit 54f0fc310f101304d4b3cf59d8017aef21f53938[m
+Author: Starkov52 <valuznnicartem@gmail.com>
+Date:   Tue Aug 19 00:45:51 2025 +0300
+
+    adaptation...
+
+[33mcommit c17d1ee1c9b6cadd7614bdaa2653a4e459d407ed[m
+Author: Starkov52 <valuznnicartem@gmail.com>
+Date:   Tue Aug 19 00:07:44 2025 +0300
+
+    more adaptation
+
+[33mcommit e696e8eba74a72641d71525310189a9bc29fba35[m
+Author: Starkov52 <valuznnicartem@gmail.com>
+Date:   Mon Aug 18 23:45:55 2025 +0300
+
+    adaptation
+
+[33mcommit 2140064d3c0759b52099d2f5364f717b4fe396af[m
+Author: Starkov52 <valuznnicartem@gmail.com>
+Date:   Mon Aug 18 23:22:13 2025 +0300
+
+    fix-bugs
+
+[33mcommit 4b0f29893ac90cfef44ff88319f7391a8b1b3f3b[m
+Author: Starkov52 <valuznnicartem@gmail.com>
+Date:   Mon Aug 18 19:42:58 2025 +0300
+
+    end???
+
+[33mcommit c4450dc48392adfa5055de445f730131f88f244b[m
+Author: Starkov52 <valuznnicartem@gmail.com>
+Date:   Sat Aug 16 23:32:57 2025 +0300
+
+    end
+
+[33mcommit b1e1f1674a6badf6f7c443b9da2fab15171b6b8f[m
+Author: Starkov52 <valuznnicartem@gmail.com>
+Date:   Sat Aug 16 03:27:38 2025 +0300
+
+    in process...
+
+[33mcommit d08964461c19bd03d03d377d21c14cbf9653d3bc[m
+Author: Starkov52 <valuznnicartem@gmail.com>
+Date:   Fri Aug 15 15:02:22 2025 +0300
+
+    inialization project

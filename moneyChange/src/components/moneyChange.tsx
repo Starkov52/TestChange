@@ -3,14 +3,13 @@ import { FaExchangeAlt } from "react-icons/fa";
 import SelectDefaultCurrency from "./selectDefaultCurrency";
 import { useSelector } from "react-redux";
 import type { RootState } from "../state/store";
+import type { currencyListType } from "../types";
 interface MoneyChangeType {
      currencies: string[];
      handleGetCurrencys: (from: string, to: string) => void;
      difference: string;
-     currencyListIsOpen: { one: boolean; two: boolean; header: boolean };
-     setCurrencyListIsOpen: React.Dispatch<
-          React.SetStateAction<{ one: boolean; two: boolean; header: boolean }>
-     >;
+     currencyListIsOpen: currencyListType;
+     setCurrencyListIsOpen: React.Dispatch<React.SetStateAction<currencyListType>>;
 }
 const MoneyChange: React.FC<MoneyChangeType> = ({
      currencies,

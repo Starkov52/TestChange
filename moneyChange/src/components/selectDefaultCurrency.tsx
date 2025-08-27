@@ -1,16 +1,15 @@
 import React from "react";
 import { MdOutlineFilterList } from "react-icons/md";
 import SelectDefaultCurrencyList from "./selectDefaultCurrencyList";
+import type { currencyListType } from "../types";
 interface CurrencyInterface {
      type: "HEADER" | "ONE" | "TWO";
 
      setTargetCurrency: React.Dispatch<React.SetStateAction<string>>;
      targetCurrency: string;
      currencies: string[];
-     currencyListIsOpen: { one: boolean; two: boolean; header: boolean };
-     setCurrencyListIsOpen: React.Dispatch<
-          React.SetStateAction<{ one: boolean; two: boolean; header: boolean }>
-     >;
+     currencyListIsOpen: currencyListType;
+     setCurrencyListIsOpen: React.Dispatch<React.SetStateAction<currencyListType>>;
 }
 const SelectDefaultCurrency: React.FC<CurrencyInterface> = ({
      type,

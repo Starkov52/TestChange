@@ -1,73 +1,8 @@
 import { Router } from "express";
-import { v4 as uuidv4 } from "uuid";
-import { Request, Response} from "express";
-import { PrismaClient } from "../generated/prisma/index.js";
-
-
-const routerForPostUserAPI = Router()
-export type TypeUserData = {
-    user_id:string,
-    base_currency:string,
-    favorites: string[]
-    created_at: string
-    updated_at:string
-}
-const prisma = new PrismaClient()
- routerForPostUserAPI.post("/", async (req:Request,res:Response) => {
-    const cookieID:string = req.cookies.user_id
-    try{
-    if(cookieID) {
-    const userData:TypeUserData  = {
-        user_id:req.cookies.user_id.toString(),
-        base_currency:req.body.base_currency,
-        favorites: req.body.favorites,
-        created_at: req.body.created_at,
-        updated_at:new Date().toISOString().slice(0,10)
-    }
-    await prisma.$connect()
-   await prisma.user.upsert({
-    where:{
-        user_id: cookieID.toString()
-    },
-        update:{
-           ...userData
-        },
-        create:{
-            ...userData
-        }
-    }).catch((error:any) => {
-        console.error('Error: ' + error.message)
-    })
-    res.json(userData)
-} else {
-    const userId = uuidv4()
-    res.cookie("user_id",userId, {
-    maxAge: 1000000,
-    httpOnly:true,
-    sameSite:'lax'
-
-})
-const userData:TypeUserData  = {
-    user_id:userId.toString(),
-    base_currency:req.body.base_currency,
-    favorites: req.body.favorites,
-    created_at: req.body.created_at,
-    updated_at:new Date().toISOString().slice(0,10)
-}
-await prisma.user.create({
-    data:{
-      ...userData
-    }
-})
-res.json(userData)
-}
-    } catch (error:any) {
-        console.error(error.message)
-        res.status(502).json({error: "Не удалось отправить данные в БД :("})
-        
-    }
-})
-export default  routerForPostUserAPI
+import { postUser } from "../controllers/postUserController";
+const routerForPostUserAPI = Router();
+routerForPostUserAPI.post("/", postUser);
+export default routerForPostUserAPI;
 
 /**
  * openapi: 3.0.0

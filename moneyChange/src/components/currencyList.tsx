@@ -2,12 +2,11 @@ import React from "react";
 import CurrencyItem from "./currencyItem";
 import { useSelector } from "react-redux";
 import { type RootState } from "../state/store";
+import type { CurrencyItemType } from "../types";
 interface CurrencyListType {
-     currenciesAPI: { name: string; value: string; isLike: boolean }[];
-     userLikeCurrency: { name: string; value: string; isLike: boolean }[] | null;
-     setCurrenciesAPI: React.Dispatch<
-          React.SetStateAction<{ name: string; value: string; isLike: boolean }[]>
-     >;
+     currenciesAPI: CurrencyItemType[];
+     userLikeCurrency: CurrencyItemType[] | null;
+     setCurrenciesAPI: React.Dispatch<React.SetStateAction<CurrencyItemType[]>>;
      handleGetCurrencys: (from: string, to: string, isList?: boolean) => any;
 }
 
