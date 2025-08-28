@@ -7,7 +7,7 @@ import routerForPostUserAPI from "./routesAPI/postUserAPI.ts";
 import RouterForGetUserAPI from "./routesAPI/getUserAPI.ts";
 import { setupSwagger } from "./swagger.ts";
 import { addCache } from "./middleware/addCache.ts";
-export const url: string = `https://v6.exchangerate-api.com/v6/13203235093b483f2f660a32/latest`;
+export const url: string = `https://v6.exchangerate-api.com/v6/59bab997eecee590aa5aeac0/latest`;
 export function startServer(type: "SERVER" | "TEST") {
      const app = express();
      const port: number = 3000;
