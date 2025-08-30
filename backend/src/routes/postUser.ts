@@ -1,8 +1,5 @@
 import { Router } from "express";
-import { postUser } from "../controllers/postUserController";
-const routerForPostUserAPI = Router();
-routerForPostUserAPI.post("/", postUser);
-export default routerForPostUserAPI;
+import { postUser } from "../controllers/postUser";
 
 /**
  * openapi: 3.0.0
@@ -58,3 +55,6 @@ export default routerForPostUserAPI;
  *       400:
  *         description: Ошибка данных
  */
+const routerForPostUserAPI = Router();
+routerForPostUserAPI.post("/", postUser);
+export default routerForPostUserAPI;

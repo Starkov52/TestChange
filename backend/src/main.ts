@@ -1,13 +1,12 @@
 import express from "express";
 import cors from "cors";
 import cookieParser from "cookie-parser";
-import routerForCurrencyAPI from "./routesAPI/currencyAPI.ts";
-import routerForRates from "./routesAPI/ratesCurrencyAPI.ts";
-import routerForPostUserAPI from "./routesAPI/postUserAPI.ts";
-import RouterForGetUserAPI from "./routesAPI/getUserAPI.ts";
+import routerForCurrencyAPI from "./routes/currency.ts";
+import routerForRates from "./routes/ratesCurrency.ts";
+import routerForPostUserAPI from "./routes/postUser.ts";
+import RouterForGetUserAPI from "./routes/getUser.ts";
 import { setupSwagger } from "./swagger.ts";
 import { addCache } from "./middleware/addCache.ts";
-export const url: string = `https://v6.exchangerate-api.com/v6/59bab997eecee590aa5aeac0/latest`;
 export function startServer(type: "SERVER" | "TEST") {
      const app = express();
      const port: number = 3000;

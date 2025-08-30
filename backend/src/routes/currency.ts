@@ -1,8 +1,6 @@
 import { Router } from "express";
-import { getCurrency } from "../controllers/currencyController";
-const routerForCurrencyAPI = Router();
-routerForCurrencyAPI.get("/", getCurrency);
-export default routerForCurrencyAPI;
+import { getCurrency } from "../controllers/currency";
+
 /**
  * @swagger
  * /api/currency:
@@ -21,3 +19,6 @@ export default routerForCurrencyAPI;
  *        description: ОШИБКА
  *
  */
+const routerForCurrencyAPI = Router();
+routerForCurrencyAPI.get("/", getCurrency);
+export default routerForCurrencyAPI;

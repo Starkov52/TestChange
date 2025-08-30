@@ -1,8 +1,5 @@
 import { Router } from "express";
-import { getUser } from "../controllers/getUserController";
-const RouterForGetUserAPI = Router();
-RouterForGetUserAPI.get("/", getUser);
-export default RouterForGetUserAPI;
+import { getUser } from "../controllers/getUser";
 
 /**
  * @swagger
@@ -39,3 +36,6 @@ export default RouterForGetUserAPI;
  *       400:
  *         description: Ошибка
  */
+const RouterForGetUserAPI = Router();
+RouterForGetUserAPI.get("/", getUser);
+export default RouterForGetUserAPI;

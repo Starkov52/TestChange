@@ -1,8 +1,6 @@
 import { Router } from "express";
-import { ratesCurrency } from "../controllers/ratesCurrencyController";
-const routerForRates = Router();
-routerForRates.get("/:baseCurrency", ratesCurrency);
-export default routerForRates;
+import { ratesCurrency } from "../controllers/ratesCurrency";
+
 /**
  * @swagger
  * /api/rates/{baseCurrency}:
@@ -37,3 +35,6 @@ export default routerForRates;
  *       400:
  *         description: Невалидный формат валюты
  */
+const routerForRates = Router();
+routerForRates.get("/:baseCurrency", ratesCurrency);
+export default routerForRates;

@@ -1,6 +1,6 @@
 import axios from "axios";
 import { ResponseType, ResponseCurrencyItem } from "../types";
-import { url } from "../main";
+import { EXCHANGE_API_URL as url } from "../config/index";
 export async function getDataByOuterAPI(base: string): Promise<ResponseType> {
      let result: ResponseType = {
           base: "",

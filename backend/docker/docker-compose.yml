@@ -1,0 +1,22 @@
+version: "3.9"
+
+services:
+     db:
+          image: postgres:16
+          environment:
+               POSTGRES_USER: postgres
+               POSTGRES_PASSWORD: 93334562
+               POSTGRES_DB: postgres
+          command: postgres -c log_statement=all
+          ports:
+               - "5432:5432"
+     backend:
+          build:
+               context: ..
+          environment:
+               DATABASE_URL: "postgresql://postgres:93334562@db:5432/postgres"
+               PORT: 3000
+          depends_on:
+               - db
+          ports:
+               - "3000:3000"

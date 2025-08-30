@@ -1,5 +1,5 @@
 import { CacheType } from "../types";
-
+export const cacheStore: Record<string, CacheType<any>> = {};
 export function sendCache<DATA>(data: DATA, time: number, key: string, targetCache: Record<string, CacheType<any>>) {
      targetCache[key] = {
           data: data,
