@@ -24,7 +24,7 @@ const Main: React.FC<MainType> = ({
           useSelector((state: RootState) => state.userData.userLikeCurrency);
      const handleGetCurrencys = async (from: string, to: string, isList?: boolean) => {
           try {
-               const url: string = `https://v6.exchangerate-api.com/v6/13203235093b483f2f660a32/latest/${from}`;
+               const url: string = `https://v6.exchangerate-api.com/v6/59bab997eecee590aa5aeac0/latest/${from}`;
                const response = await fetch(url, {
                     headers: {
                          "Content-Type": "application/json"
